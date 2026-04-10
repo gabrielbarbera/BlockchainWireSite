@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Hanken+Grotesk:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-primary: #35bacf;
+  --color-primary-dark: #1e6b77;
+  --color-ink: #0a0a0a;
+  --color-paper: #fcfcfc;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f5f5f5;
+  --shadow-premium: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-glow: 0 0 60px -15px rgba(53, 186, 207, 0.4);
+  --shadow-glow-strong: 0 0 20px rgba(53, 186, 207, 0.5);
+  --shadow-glow-text: 0 0 24px rgba(53, 186, 207, 0.5), 0 2px 8px rgba(53, 186, 207, 0.25);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans text-ink bg-paper antialiased overflow-x-hidden;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-semibold;
+  }
+  ::selection {
+    background-color: var(--color-primary);
+    color: white;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Glassmorphism Effects */
+  .glass {
+    background: color-mix(in oklab, white 10%, transparent);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid color-mix(in oklab, white 20%, transparent);
+    box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.1);
+  }
+  .glass-dark {
+    background: color-mix(in oklab, var(--color-ink) 80%, transparent);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid color-mix(in oklab, white 5%, transparent);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+  .glass-card {
+    background: color-mix(in oklab, white 5%, transparent);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid color-mix(in oklab, white 10%, transparent);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Text Glow Effects */
+  .text-glow {
+    text-shadow: 0 0 40px rgba(53, 186, 207, 0.4);
+  }
+  .text-glow-strong {
+    text-shadow:
+      0 0 24px rgba(53, 186, 207, 0.5),
+      0 2px 8px rgba(53, 186, 207, 0.25);
+  }
+  .text-glow-subtle {
+    text-shadow: 0 0 20px rgba(53, 186, 207, 0.3);
+  }
+
+  /* Noise Texture */
+  .noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.04;
+  }
+
+  /* Gradient Fade Masks */
+  .mask-fade-bottom {
+    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+  }
+  .mask-fade-top {
+    mask-image: linear-gradient(to top, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to top, black 85%, transparent 100%);
+  }
+  .mask-fade-y {
+    mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+  }
+
+  /* Button Glow Effect */
+  .btn-glow {
+    box-shadow: 0 0 20px rgba(53, 186, 207, 0.5);
+  }
+  .btn-glow-hover:hover {
+    box-shadow: 0 0 30px rgba(53, 186, 207, 0.7);
+  }
+
+  /* Terminal Styles */
+  .terminal-text {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+  .terminal-window {
+    background: linear-gradient(180deg, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.98) 100%);
+    border: 1px solid color-mix(in oklab, white 8%, transparent);
+    backdrop-filter: blur(20px);
+  }
+
+  /* Referral Code Box */
+  .referral-box {
+    background: color-mix(in oklab, white 5%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid color-mix(in oklab, white 10%, transparent);
+  }
+
+  /* Tracking Utilities */
+  .tracking-tighter-hero {
+    letter-spacing: -0.07em;
+  }
+  .tracking-wide-label {
+    letter-spacing: 0.3em;
+  }
+
+  /* Loading Screen */
+  .loading-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--color-ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Text Reveal Animation */
+  .text-reveal {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  /* Headline Utilities with Promo Page Styling */
+  .headline-hero {
+    font-size: clamp(2.25rem, 11vw, 8rem);
+    line-height: 0.9;
+    letter-spacing: -0.07em;
+    font-weight: 900;
+  }
+  @media (min-width: 768px) {
+    .headline-hero {
+      font-size: clamp(3rem, 12vw, 9rem);
+    }
+  }
+  .headline-section {
+    font-size: clamp(1.25rem, 4vw, 3.25rem);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+  }
+  .headline-section-lg {
+    font-size: clamp(1.5rem, 5vw, 4rem);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+  }
+  .headline-cta {
+    font-size: clamp(1.5rem, 5vw, 3.5rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+  }
+
+  /* Section Spacing */
+  .section-spacing {
+    padding-top: clamp(4rem, 12vw, 10rem);
+    padding-bottom: clamp(4rem, 12vw, 10rem);
+  }
+  .section-spacing-sm {
+    padding-top: clamp(3rem, 8vw, 6rem);
+    padding-bottom: clamp(3rem, 8vw, 6rem);
+  }
+  .section-spacing-lg {
+    padding-top: clamp(6rem, 16vw, 12rem);
+    padding-bottom: clamp(6rem, 16vw, 12rem);
+  }
+
+  /* Container Widths */
+  .container-narrow {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .container-wide {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .container-ultra-wide {
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes menu-appear {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes menu-item-appear {
+  0% {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes terminal-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(53, 186, 207, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(53, 186, 207, 0.7);
+  }
+}
+
+@keyframes loading-progress {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee-slow {
+  animation: marquee 60s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee 40s linear infinite reverse;
+}
+
+.animate-menu-appear {
+  animation: menu-appear 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-menu-item-appear {
+  animation: menu-item-appear 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.animate-terminal-blink {
+  animation: terminal-blink 1s step-end infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-loading-progress {
+  animation: loading-progress 2s ease-out forwards;
+}
+
+/* ── Page transitions ────────────────────────────────────────────────────── */
+
+@keyframes page-exit {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-6px); }
+}
+
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes nav-progress {
+  0%   { width: 0%;    opacity: 1; }
+  80%  { width: 88%;   opacity: 1; }
+  100% { width: 100%;  opacity: 0; }
+}
+
+.animate-page-exit {
+  animation: page-exit 0.18s cubic-bezier(0.4, 0, 0.6, 1) forwards;
+  pointer-events: none;
+}
+
+.animate-page-enter {
+  animation: page-enter 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-nav-progress {
+  animation: nav-progress 0.52s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Custom Scrollbar - Thin and Minimal */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, var(--color-ink) 20%, transparent);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in oklab, var(--color-primary) 50%, transparent);
+}

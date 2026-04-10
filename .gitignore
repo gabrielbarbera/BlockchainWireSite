@@ -1,0 +1,49 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Testing
+coverage/
+
+# Misc
+.cache/
+.temp/
+*.tsbuildinfo
+
+# Vite
+.vite/
+
+# Vercel
+.vercel/
+
+# AI assistants (local config/memory, not project docs)
+.claude/
+agents.md
+CLAUDE.md
