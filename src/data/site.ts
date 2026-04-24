@@ -18,6 +18,12 @@ export const NAV_ITEMS: NavItem[] = [
 ];
 
 export const SITEMAP: Record<string, RouteData> = {
+  "/": {
+    title: "Home",
+    intro: "Web3 press release distribution to AP News, Yahoo Finance, Business Insider, and 1,200+ outlets.",
+    seoTitle: "BlockchainWire | Web3 Press Release Distribution",
+    seoDescription: "Distribute Web3 and crypto announcements to AP News, Yahoo Finance, Business Insider, and 1,200+ outlets. Build authority that moves markets.",
+  },
   "/solutions": {
     title: "Solutions",
     intro: "Built for teams operating at different stages of Web3 growth.",
@@ -29,9 +35,8 @@ export const SITEMAP: Record<string, RouteData> = {
       "For Token Launches",
       "For Events & Partnerships",
     ],
-    seoTitle: "Web3 Media Distribution Solutions | BlockchainWire",
-    seoDescription:
-      "Distribution solutions for startups, agencies, exchanges, public companies, token launches, and partnership campaigns.",
+    seoTitle: "Web3 PR Solutions by Use Case | BlockchainWire",
+    seoDescription: "Press release distribution for Web3 startups, agencies, exchanges, public companies, token launches, and partnership campaigns.",
   },
   "/products": {
     title: "Products",
@@ -45,25 +50,22 @@ export const SITEMAP: Record<string, RouteData> = {
       "Analytics & Reporting",
       "Custom Campaigns",
     ],
-    seoTitle: "Distribution Products for Web3 Teams | BlockchainWire",
-    seoDescription:
-      "Press release distribution, media network access, AI visibility, editorial support, and analytics in one platform.",
+    seoTitle: "Web3 PR Products and Distribution Stack | BlockchainWire",
+    seoDescription: "Press release distribution, media network, AI and search visibility, editorial, and analytics built for Web3 and crypto teams.",
   },
   "/pricing": {
     title: "Pricing",
     intro: "Transparent packages with a clear path to enterprise scale.",
     sections: ["Packages", "Add-Ons", "Enterprise / Custom"],
-    seoTitle: "Web3 Press Release Pricing | BlockchainWire",
-    seoDescription:
-      "Explore starter, growth, and enterprise distribution packages with flexible add-ons and custom options.",
+    seoTitle: "Crypto PR Pricing from $295 | BlockchainWire",
+    seoDescription: "Compare Pro, Elite, and Premium Web3 press release packages from $295. Google News indexed, up to 82M reach, 25+ crypto placements.",
   },
   "/bespoke": {
     title: "BeSpoke™ Custom Media Solutions",
     intro: "Fully customizable media distribution for brands that need more than standard packages.",
     sections: ["Tier 1 Foundation", "Tier 2 Growth", "Tier 3 Authority", "Custom Residency"],
-    seoTitle: "BeSpoke™ Custom Media Distribution | BlockchainWire",
-    seoDescription:
-      "Tailored media distribution with organic articles, broadcast TV, radio spots, AMAs, and multi-platform campaigns. Three tiers from $2,500 to $12,000 per month.",
+    seoTitle: "BeSpoke Custom Media Distribution | BlockchainWire",
+    seoDescription: "Custom Web3 PR campaigns with organic articles, broadcast TV, radio, and AMAs. Three tiers from $2,500 to $12,000 per month.",
   },
   "/results": {
     title: "Results",
@@ -75,40 +77,35 @@ export const SITEMAP: Record<string, RouteData> = {
       "Sample Reports",
     ],
     seoTitle: "Case Studies and Media Results | BlockchainWire",
-    seoDescription:
-      "Review real outcomes from Web3 distribution campaigns, including placements, visibility lift, and reporting snapshots.",
+    seoDescription: "Real outcomes from Web3 press release campaigns. Case studies, media placements, testimonials, and sample reports.",
   },
   "/results/case-studies": {
     title: "Case Studies",
     intro: "See how teams use distribution to increase visibility and credibility.",
     sections: ["Objectives", "Challenges", "Solutions", "Results"],
-    seoTitle: "Case Studies | BlockchainWire",
-    seoDescription:
-      "Explore structured distribution case studies showing placements, visibility, reach, and discoverability outcomes.",
+    seoTitle: "Web3 PR Case Studies | BlockchainWire",
+    seoDescription: "See how Web3 projects used BlockchainWire distribution to grow visibility, credibility, and placement reach across tier-1 media.",
   },
   "/results/media-placements": {
     title: "Media Placements",
     intro: "Review where announcements are published across our network.",
     sections: ["Crypto media", "Financial media", "Global syndication"],
-    seoTitle: "Media Placements | BlockchainWire",
-    seoDescription:
-      "Review placement categories across crypto, financial, and global syndication channels.",
+    seoTitle: "Media Placement Network | BlockchainWire",
+    seoDescription: "Placement categories across crypto media, financial media, and global syndication. Where Web3 announcements get published.",
   },
   "/results/testimonials": {
     title: "Testimonials",
     intro: "Hear from teams using BlockchainWire.",
     sections: ["Client feedback", "Use cases", "Distribution outcomes"],
-    seoTitle: "Testimonials | BlockchainWire",
-    seoDescription:
-      "Read client testimonials from teams using structured distribution to improve visibility and credibility.",
+    seoTitle: "Client Testimonials | BlockchainWire",
+    seoDescription: "Hear from Web3 and crypto teams using BlockchainWire for structured press release distribution and media placement.",
   },
   "/results/sample-reports": {
     title: "Sample Reports",
     intro: "Understand how performance is tracked and delivered.",
     sections: ["Placement coverage", "Reach", "Visibility indicators"],
-    seoTitle: "Sample Reports | BlockchainWire",
-    seoDescription:
-      "View sample reporting structure for placement coverage, estimated reach, distribution footprint, and visibility indicators.",
+    seoTitle: "Sample Campaign Reports | BlockchainWire",
+    seoDescription: "Preview BlockchainWire reporting. Placement coverage, estimated reach, distribution footprint, and visibility indicators.",
   },
   "/resources": {
     title: "Resources",
@@ -121,16 +118,14 @@ export const SITEMAP: Record<string, RouteData> = {
       "Industry News",
     ],
     seoTitle: "Press Release Resources and Templates | BlockchainWire",
-    seoDescription:
-      "Guides, templates, and newsroom insights to help Web3 teams launch higher-performing announcements.",
+    seoDescription: "Guides, templates, and newsroom insights for Web3 teams writing and launching higher-performing press releases.",
   },
   "/resources/press-release-guide": {
     title: "Press Release Guide",
     intro: "Learn how to structure and write effective announcements.",
     sections: ["Structure", "Common mistakes", "Performance impact"],
-    seoTitle: "Press Release Guide | BlockchainWire",
-    seoDescription:
-      "Learn how to write structured press releases that improve placement quality, readability, and discoverability.",
+    seoTitle: "Web3 Press Release Guide | BlockchainWire",
+    seoDescription: "How to structure and write Web3 press releases that improve placement quality, readability, and AI search discoverability.",
   },
   "/resources/templates": {
     title: "Templates",
@@ -142,81 +137,71 @@ export const SITEMAP: Record<string, RouteData> = {
       "Token launch template",
       "Exchange listing template",
     ],
-    seoTitle: "Press Release Templates | BlockchainWire",
-    seoDescription:
-      "Use structured templates for product launches, funding announcements, partnerships, token launches, and listings.",
+    seoTitle: "Free Web3 Press Release Templates | BlockchainWire",
+    seoDescription: "Download templates for product launches, funding rounds, partnerships, token launches, and exchange listings.",
   },
   "/resources/best-practices": {
     title: "Best Practices",
     intro: "Understand what improves visibility and placement outcomes.",
     sections: ["Clarity", "Timing", "Consistency", "Tier selection"],
-    seoTitle: "Distribution Best Practices | BlockchainWire",
-    seoDescription:
-      "Apply distribution best practices across structure, timing, and positioning to improve visibility and discoverability.",
+    seoTitle: "Web3 PR Best Practices | BlockchainWire",
+    seoDescription: "Distribution best practices across structure, timing, and positioning that improve Web3 press release outcomes.",
   },
   "/resources/newsroom": {
     title: "Newsroom",
     intro: "Stay updated with industry developments and media trends.",
     sections: ["Recent releases", "Platform updates", "Media changes"],
-    seoTitle: "Newsroom | BlockchainWire",
-    seoDescription:
-      "Track recent announcements, media activity, and distribution updates in the BlockchainWire newsroom.",
+    seoTitle: "BlockchainWire Newsroom | Web3 PR News",
+    seoDescription: "Recent Web3 and crypto press releases, platform updates, and media distribution news from BlockchainWire.",
   },
   "/resources/industry-news": {
     title: "Industry News",
     intro: "Curated updates from across crypto, finance, and media.",
     sections: ["Market trends", "Distribution shifts", "AI/search changes"],
-    seoTitle: "Industry News | BlockchainWire",
-    seoDescription:
-      "Curated insights across crypto, finance, media, and AI/search trends shaping modern distribution strategy.",
+    seoTitle: "Crypto and Web3 Industry News | BlockchainWire",
+    seoDescription: "Curated insights across crypto, finance, media, and AI search trends shaping Web3 press release distribution.",
   },
   "/company": {
     title: "Company",
     intro: "The team, network, and standards behind BlockchainWire.",
     sections: ["About", "Media Network", "Contact", "FAQ", "Legal"],
-    seoTitle: "About BlockchainWire",
-    seoDescription:
-      "Learn about our media network, company standards, contact options, and legal information.",
+    seoTitle: "About BlockchainWire | Web3 PR Infrastructure",
+    seoDescription: "Learn about BlockchainWire, the distribution network, standards, and team behind Web3 press release placement.",
   },
   "/company/about": {
     title: "About",
     intro: "Built for visibility, designed for credibility.",
     sections: ["Approach", "What we do", "Positioning"],
     seoTitle: "About BlockchainWire | Distribution Infrastructure",
-    seoDescription:
-      "Learn how BlockchainWire delivers structured distribution focused on placement quality, credibility, and discoverability.",
+    seoDescription: "BlockchainWire delivers structured Web3 press release distribution focused on placement quality, credibility, and reach.",
   },
   "/company/media-network": {
     title: "Media Network",
     intro: "A curated network built for reach, relevance, and credibility.",
     sections: ["Crypto media", "Financial media", "Global syndication", "Search indexing"],
-    seoTitle: "Company Media Network | BlockchainWire",
-    seoDescription:
-      "Understand the media network behind BlockchainWire distribution across crypto, financial, and global channels.",
+    seoTitle: "Media Network | BlockchainWire",
+    seoDescription: "Explore the BlockchainWire media network across crypto, financial, and global syndication channels with Google News indexing.",
   },
   "/company/contact": {
     title: "Contact",
     intro: "Speak with our team about packages, campaigns, and partnerships.",
     sections: ["General inquiries", "Sales", "Custom campaigns"],
-    seoTitle: "Contact BlockchainWire",
-    seoDescription:
-      "Contact BlockchainWire for package guidance, custom campaign planning, and partnership inquiries.",
+    seoTitle: "Contact BlockchainWire | Web3 PR Inquiries",
+    seoDescription: "Contact BlockchainWire for package guidance, custom campaign planning, and Web3 press release partnership inquiries.",
   },
   "/company/faq": {
     title: "FAQ",
     intro: "Answers to common questions about distribution and placements.",
     sections: ["Process", "Placements", "Timing", "Customization"],
-    seoTitle: "FAQ | BlockchainWire",
-    seoDescription:
-      "Review common questions about distribution mechanics, guaranteed placements, turnaround, and custom options.",
+    seoTitle: "Web3 PR FAQ | BlockchainWire",
+    seoDescription: "Answers to common questions about Web3 press release distribution, placements, turnaround, pricing, and customization.",
   },
   "/company/legal": {
     title: "Legal & Compliance",
     intro: "Important legal information regarding platform and distribution usage.",
     sections: ["Terms of Service", "Privacy Policy", "Disclaimer"],
-    seoTitle: "Legal & Compliance | BlockchainWire",
-    seoDescription:
-      "Review terms, privacy, and legal disclaimers for BlockchainWire platform and distribution services.",
+    seoTitle: "Legal and Compliance | BlockchainWire",
+    seoDescription: "Terms of service, privacy policy, and disclaimers for the BlockchainWire press release distribution platform.",
   },
   "/auth/signup": {
     title: "Sign Up",
@@ -227,17 +212,17 @@ export const SITEMAP: Record<string, RouteData> = {
       "Access dashboard",
       "Start distribution",
     ],
-    seoTitle: "Create Your Account | BlockchainWire",
-    seoDescription:
-      "Sign up to launch announcements and track placements through the BlockchainWire distribution platform.",
+    seoTitle: "Create Your BlockchainWire Account",
+    seoDescription: "Sign up for BlockchainWire to submit press releases and track placements across the Web3 distribution network.",
+    robots: "noindex, nofollow",
   },
   "/auth/login": {
     title: "Log In",
     intro: "Access your account and launch your next announcement.",
     sections: ["Secure sign-in", "Project access", "Placement tracking"],
     seoTitle: "Log In | BlockchainWire",
-    seoDescription:
-      "Log in to your BlockchainWire account to manage campaigns, placements, and reporting.",
+    seoDescription: "Log in to BlockchainWire to manage campaigns, submissions, placements, and distribution reporting.",
+    robots: "noindex, nofollow",
   },
   "/dashboard": {
     title: "Dashboard",
@@ -249,112 +234,105 @@ export const SITEMAP: Record<string, RouteData> = {
       "Learn how it works",
     ],
     seoTitle: "Campaign Dashboard | BlockchainWire",
-    seoDescription:
-      "Manage active campaigns, placement data, and performance reporting in your dashboard.",
+    seoDescription: "Manage Web3 press release campaigns, placements, and reporting from the BlockchainWire dashboard.",
+    robots: "noindex, nofollow",
   },
   "/auth/forgot-password": {
     title: "Forgot Password",
     intro: "Receive reset instructions for account access.",
     sections: ["Email input", "Reset link request"],
-    seoTitle: "Reset Password Request | BlockchainWire",
-    seoDescription:
-      "Request a password reset link to restore access to your BlockchainWire account.",
+    seoTitle: "Reset Password | BlockchainWire",
+    seoDescription: "Request a password reset link to restore access to your BlockchainWire account.",
+    robots: "noindex, nofollow",
   },
   "/auth/reset-password": {
     title: "Reset Password",
     intro: "Set a new secure password for your account.",
     sections: ["New password", "Confirm password"],
     seoTitle: "Set New Password | BlockchainWire",
-    seoDescription:
-      "Set a new secure password and regain access to your BlockchainWire account.",
+    seoDescription: "Set a new secure password and regain access to your BlockchainWire account.",
+    robots: "noindex, nofollow",
   },
   "/dashboard/distributions": {
     title: "Distribution Dashboard",
     intro: "Manage announcements, placements, and reports.",
     sections: ["Recent distributions", "Drafts", "Reports"],
     seoTitle: "Distribution Dashboard | BlockchainWire",
-    seoDescription:
-      "Manage announcements, monitor placements, and access reporting from your distribution dashboard.",
+    seoDescription: "Manage Web3 announcements, monitor placements, and access reporting from your distribution dashboard.",
+    robots: "noindex, nofollow",
   },
   "/dashboard/submit-press-release": {
     title: "Create Press Release",
     intro: "Prepare your announcement for distribution.",
     sections: ["Basic information", "Content", "Assets", "Package selection"],
     seoTitle: "Create Press Release | BlockchainWire",
-    seoDescription:
-      "Create and prepare a press release for structured distribution across media channels.",
+    seoDescription: "Create and prepare a Web3 press release for structured distribution across the BlockchainWire media network.",
+    robots: "noindex, nofollow",
   },
   "/dashboard/confirm-distribution": {
     title: "Confirm Distribution",
     intro: "Review package and launch distribution.",
     sections: ["Package summary", "Reach estimate", "Distribution scope"],
     seoTitle: "Confirm Distribution | BlockchainWire",
-    seoDescription:
-      "Review selected package details and finalize your distribution submission.",
+    seoDescription: "Review selected package details and finalize your Web3 press release distribution submission.",
+    robots: "noindex, nofollow",
   },
   "/dashboard/distribution-submitted": {
     title: "Distribution Submitted",
     intro: "Submission confirmed and processing started.",
     sections: ["Confirmation ID", "Package", "Turnaround time", "Next steps"],
     seoTitle: "Distribution Submitted | BlockchainWire",
-    seoDescription:
-      "Your distribution has been submitted. Track placements and reporting progress in the dashboard.",
+    seoDescription: "Your Web3 press release has been submitted. Track placements and reporting progress in your dashboard.",
+    robots: "noindex, nofollow",
   },
   "/how-it-works": {
     title: "How It Works",
     intro: "Step-by-step distribution process from submission to reporting.",
     sections: ["Prepare", "Select", "Launch", "Measure"],
-    seoTitle: "How Distribution Works | BlockchainWire",
-    seoDescription:
-      "Understand the full distribution lifecycle from submission and package selection through placement and reporting.",
+    seoTitle: "How Web3 PR Distribution Works | BlockchainWire",
+    seoDescription: "Step-by-step Web3 press release process: prepare the release, select a package, launch distribution, and measure results.",
   },
   "/compare-packages": {
     title: "Compare Packages",
     intro: "Compare placements, reach, turnaround, and media scope.",
     sections: ["Placements", "Reach", "Turnaround", "Media types"],
-    seoTitle: "Compare Distribution Packages | BlockchainWire",
-    seoDescription:
-      "Compare distribution packages side-by-side to select the right placement scope and reach profile.",
+    seoTitle: "Compare Web3 PR Packages | BlockchainWire",
+    seoDescription: "Compare Pro ($295), Elite ($395), and Premium ($495) Web3 press release packages by placements, reach, and turnaround.",
   },
   "/sample-distribution": {
     title: "Sample Distribution",
     intro: "Review a representative release and placement outcomes.",
     sections: ["Sample release", "Placements", "Reach summary"],
-    seoTitle: "Sample Distribution Outcome | BlockchainWire",
-    seoDescription:
-      "See a sample distribution including publication outcomes, coverage footprint, and reporting summary.",
+    seoTitle: "Sample Web3 PR Distribution | BlockchainWire",
+    seoDescription: "Review a sample Web3 press release distribution including publication coverage, reach footprint, and reporting summary.",
   },
   "/media-database": {
     title: "Media Database",
     intro: "Explore publications by category, region, traffic, and authority.",
     sections: ["Search", "Filters", "Publication data"],
-    seoTitle: "Explore Media Database | BlockchainWire",
-    seoDescription:
-      "Explore a searchable media database with filters for category, region, traffic profile, and authority tier.",
+    seoTitle: "Media Database | BlockchainWire",
+    seoDescription: "Searchable database of publications by category, region, traffic profile, and authority tier for Web3 press distribution.",
   },
   "/release-performance-insights": {
     title: "Release Performance Insights",
     intro: "Operational metrics beyond placement counts.",
     sections: ["Estimated impressions", "Visibility score", "Quality tier"],
     seoTitle: "Release Performance Insights | BlockchainWire",
-    seoDescription:
-      "Analyze release outcomes using visibility and placement-quality metrics to refine distribution strategy.",
+    seoDescription: "Measure Web3 press releases beyond placement counts with visibility scoring, quality tiers, and estimated impressions.",
   },
   "/editorial-guidelines": {
     title: "Editorial Guidelines",
     intro: "Submission standards for higher placement quality.",
     sections: ["Structure", "Claims policy", "Readability"],
     seoTitle: "Editorial Guidelines | BlockchainWire",
-    seoDescription:
-      "Follow editorial standards that improve submission quality, reduce revision cycles, and improve outcomes.",
+    seoDescription: "Submission standards for Web3 press releases: structure, claims policy, readability, and quality requirements.",
   },
   "/turnaround-slas": {
     title: "Turnaround & Process SLAs",
     intro: "Defined windows, deadlines, and revision policy.",
     sections: ["Deadlines", "Windows", "Revision policy"],
-    seoTitle: "Turnaround and Process SLAs | BlockchainWire",
-    seoDescription:
-      "Review submission deadlines, processing windows, and revision policy for predictable distribution delivery.",
+    seoTitle: "Turnaround and SLAs | BlockchainWire",
+    seoDescription: "Submission deadlines, processing windows, and revision policy for predictable Web3 press release delivery.",
   },
 };
 

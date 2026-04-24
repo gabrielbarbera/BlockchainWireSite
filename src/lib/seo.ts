@@ -52,6 +52,10 @@ export function applySeo(pathname: string): void {
 
   descriptionTag.content = seo.description;
 
+  // Get route-specific robots meta tag
+  const route = SITEMAP[pathname];
+  const routeRobots = route?.robots;
+
   // Conditional noindex for preview/non-production domains
   const hostname = window.location.hostname;
   const isProduction = hostname === 'blockchainwire.io' || hostname === 'www.blockchainwire.io';
@@ -60,17 +64,28 @@ export function applySeo(pathname: string): void {
     'meta[name="robots"]',
   ) as HTMLMetaElement | null;
 
-  if (!isProduction) {
-    // Add or update noindex for non-production domains
+  // Priority: Route-specific robots > Preview domain check > Default allow
+  if (routeRobots) {
+    // Use route-specific robots (e.g., "noindex, nofollow" for auth/dashboard pages)
+    if (!robotsTag) {
+      robotsTag = document.createElement("meta");
+      robotsTag.name = "robots";
+      document.head.appendChild(robotsTag);
+    }
+    robotsTag.content = routeRobots;
+  } else if (!isProduction) {
+    // Add noindex for non-production domains
     if (!robotsTag) {
       robotsTag = document.createElement("meta");
       robotsTag.name = "robots";
       document.head.appendChild(robotsTag);
     }
     robotsTag.content = "noindex, nofollow";
-  } else if (robotsTag && robotsTag.content === "noindex, nofollow") {
-    // Remove noindex on production if it exists
-    robotsTag.remove();
+  } else {
+    // Production: remove robots tag if it was set for preview
+    if (robotsTag && (robotsTag.content === "noindex, nofollow")) {
+      robotsTag.remove();
+    }
   }
 }
 
