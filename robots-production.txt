@@ -1,0 +1,13 @@
+# robots.txt for BlockchainWire Production
+# Allow indexing on the main production domain
+
+User-agent: *
+Allow: /
+
+# Disallow authentication and dashboard pages
+Disallow: /auth/
+Disallow: /dashboard/
+Disallow: /affiliate
+
+# Sitemap
+Sitemap: https://blockchainwire.io/sitemap.xml

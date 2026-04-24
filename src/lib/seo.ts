@@ -51,5 +51,26 @@ export function applySeo(pathname: string): void {
   }
 
   descriptionTag.content = seo.description;
+
+  // Conditional noindex for preview/non-production domains
+  const hostname = window.location.hostname;
+  const isProduction = hostname === 'blockchainwire.io' || hostname === 'www.blockchainwire.io';
+  
+  let robotsTag = document.querySelector(
+    'meta[name="robots"]',
+  ) as HTMLMetaElement | null;
+
+  if (!isProduction) {
+    // Add or update noindex for non-production domains
+    if (!robotsTag) {
+      robotsTag = document.createElement("meta");
+      robotsTag.name = "robots";
+      document.head.appendChild(robotsTag);
+    }
+    robotsTag.content = "noindex, nofollow";
+  } else if (robotsTag && robotsTag.content === "noindex, nofollow") {
+    // Remove noindex on production if it exists
+    robotsTag.remove();
+  }
 }
 

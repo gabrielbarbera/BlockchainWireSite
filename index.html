@@ -57,6 +57,26 @@
       }
     }
     </script>
+
+    <!-- Conditional NOINDEX for Preview/Development Domains -->
+    <script>
+      (function() {
+        const hostname = window.location.hostname;
+        const isProduction = hostname === 'blockchainwire.io' || hostname === 'www.blockchainwire.io';
+        
+        // Add noindex for all non-production domains (Vercel previews, localhost, etc.)
+        if (!isProduction) {
+          const meta = document.createElement('meta');
+          meta.name = 'robots';
+          meta.content = 'noindex, nofollow';
+          document.head.appendChild(meta);
+          
+          console.log('[SEO] NOINDEX enabled for:', hostname);
+        } else {
+          console.log('[SEO] Indexing enabled for production domain');
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -1,0 +1,15 @@
+# robots.txt for BlockchainWire
+# This file blocks crawlers from preview/staging domains
+# Production deployment will use a different robots.txt
+
+User-agent: *
+Disallow: /auth/
+Disallow: /dashboard/
+Disallow: /affiliate
+
+# Block all indexing on preview/development domains
+# This robots.txt is for preview deployments only
+# Production robots.txt should allow indexing of main content
+
+# Sitemap will be added for production domain
+# Sitemap: https://blockchainwire.io/sitemap.xml
