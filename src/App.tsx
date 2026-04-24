@@ -197,7 +197,9 @@ export default function App() {
 
       {showFloatingCTA && !path.startsWith("/dashboard") && (
         <a
-          href="/auth/signup"
+          href="https://admin.blockchainwire.io/signup"
+          target="_blank"
+          rel="noopener noreferrer"
           className="group fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.1em] text-white btn-glow btn-glow-hover hover:-translate-y-0.5 transition-all duration-300 animate-pulse-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
         >
           Submit Press Release

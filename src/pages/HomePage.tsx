@@ -277,7 +277,7 @@ export function HomePage() {
               </div>
 
               <div className="mt-10 flex flex-wrap gap-4">
-                <CtaLink href="/auth/signup" size="large">
+                <CtaLink href="https://admin.blockchainwire.io/signup" size="large">
                   Submit Press Release
                 </CtaLink>
                 <CtaLink href="/pricing" variant="outline" size="large">
@@ -704,7 +704,7 @@ export function HomePage() {
               visibility, credibility, and lasting discovery.
             </p>
             <div className="mt-12 flex flex-wrap justify-center gap-4">
-              <CtaLink href="/auth/signup" size="large">
+              <CtaLink href="https://admin.blockchainwire.io/signup" size="large">
                 Get Started
               </CtaLink>
               <CtaLink href="/pricing" variant="outline" size="large">

@@ -132,7 +132,7 @@ function PricingCard({ card }: { card: CircuitCard }) {
         <li>{card.includes}</li>
       </ul>
       <div className="mt-6">
-        <CtaLink href="/auth/signup" variant={card.highlighted ? "primary" : "outline"}>
+        <CtaLink href="https://admin.blockchainwire.io/signup" variant={card.highlighted ? "primary" : "outline"}>
           {card.cta}
         </CtaLink>
       </div>
@@ -302,11 +302,11 @@ export function PricingPage() {
 
           <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
             <div className="flex flex-col items-center gap-1.5">
-              <CtaLink href="/auth/signup">Get Started</CtaLink>
+              <CtaLink href="https://admin.blockchainwire.io/signup">Get Started</CtaLink>
               <span className="text-xs text-white/50">Free account, no commitment</span>
             </div>
             <div className="flex flex-col items-center gap-1.5">
-              <CtaLink href="/auth/login" variant="outline">Log In</CtaLink>
+              <CtaLink href="https://admin.blockchainwire.io/signin" variant="outline">Log In</CtaLink>
               <span className="text-xs text-white/50">Already have an account</span>
             </div>
           </div>

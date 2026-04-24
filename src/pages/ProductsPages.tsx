@@ -252,7 +252,7 @@ export function ProductsPage() {
 
       <SectionDark title="Explore the Platform">
         <div className="mt-8 flex flex-wrap gap-3">
-          <CtaLink href="/auth/signup">Get Started</CtaLink>
+          <CtaLink href="https://admin.blockchainwire.io/signup">Get Started</CtaLink>
           <CtaLink href="/pricing" variant="outline">
             View Pricing
           </CtaLink>

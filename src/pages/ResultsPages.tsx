@@ -37,7 +37,7 @@ export const RESULTS_PAGES: ResultsPageData[] = [
     ],
     ctaTitle: "Launch Your Own Distribution Campaign",
     ctaButton: "Get Started",
-    ctaHref: "/auth/signup",
+    ctaHref: "https://admin.blockchainwire.io/signup",
   },
   {
     path: "/results/media-placements",
@@ -74,7 +74,7 @@ export const RESULTS_PAGES: ResultsPageData[] = [
     ],
     ctaTitle: "Start Your First Distribution",
     ctaButton: "Get Started",
-    ctaHref: "/auth/signup",
+    ctaHref: "https://admin.blockchainwire.io/signup",
   },
   {
     path: "/results/sample-reports",
@@ -172,7 +172,7 @@ export function ResultsOverviewPage() {
 
       <SectionDark title="See How Distribution Performs">
         <div className="mt-8">
-          <CtaLink href="/auth/signup">Get Started</CtaLink>
+          <CtaLink href="https://admin.blockchainwire.io/signup">Get Started</CtaLink>
         </div>
       </SectionDark>
     </main>

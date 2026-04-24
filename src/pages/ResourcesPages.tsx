@@ -91,7 +91,7 @@ export const RESOURCE_PAGES: ResourcePageData[] = [
     ],
     ctaTitle: "Apply Best Practices to Your Next Launch",
     ctaButton: "Get Started",
-    ctaHref: "/auth/signup",
+    ctaHref: "https://admin.blockchainwire.io/signup",
   },
   {
     path: "/resources/newsroom",
@@ -195,7 +195,7 @@ export function ResourcesOverviewPage() {
 
       <SectionDark title="Start With the Fundamentals">
         <div className="mt-8">
-          <CtaLink href="/auth/signup">Get Started</CtaLink>
+          <CtaLink href="https://admin.blockchainwire.io/signup">Get Started</CtaLink>
         </div>
       </SectionDark>
     </main>

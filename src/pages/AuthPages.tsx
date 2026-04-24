@@ -198,7 +198,7 @@ export function SignUpPage() {
 
       <div className="mt-6 flex items-center gap-1.5 text-sm">
         <span className="text-ink/45">Already have an account?</span>
-        <a href="/auth/login" className="text-primary-dark font-medium hover:underline">
+        <a href="https://admin.blockchainwire.io/signin" target="_blank" rel="noopener noreferrer" className="text-primary-dark font-medium hover:underline">
           Log In
         </a>
       </div>
@@ -272,7 +272,7 @@ export function LoginPage() {
 
       <div className="mt-6 flex items-center gap-1.5 text-sm">
         <span className="text-ink/45">Don't have an account?</span>
-        <a href="/auth/signup" className="text-primary-dark font-medium hover:underline">
+        <a href="https://admin.blockchainwire.io/signup" target="_blank" rel="noopener noreferrer" className="text-primary-dark font-medium hover:underline">
           Sign Up Free
         </a>
       </div>
@@ -333,7 +333,7 @@ export function ForgotPasswordPage() {
 
       <div className="mt-6 flex items-center gap-1.5 text-sm">
         <span className="text-ink/45">Remember your password?</span>
-        <a href="/auth/login" className="text-primary-dark font-medium hover:underline">
+        <a href="https://admin.blockchainwire.io/signin" target="_blank" rel="noopener noreferrer" className="text-primary-dark font-medium hover:underline">
           Log In
         </a>
       </div>

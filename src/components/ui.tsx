@@ -53,12 +53,14 @@ export function CtaLink({
   variant = "primary",
   size = "default",
   className = "",
+  external = false,
 }: {
   href: string;
   children: ReactNode;
   variant?: "primary" | "outline" | "ghost";
   size?: "default" | "large";
   className?: string;
+  external?: boolean;
 }) {
   const baseClasses =
     "group inline-flex items-center justify-center gap-2 rounded-full font-semibold uppercase tracking-[0.1em] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
@@ -76,7 +78,11 @@ export function CtaLink({
       : "text-ink/70 hover:text-ink hover:bg-ink/5";
 
   return (
-    <a href={href} className={`${baseClasses} ${sizeClasses} ${variantClasses} ${className}`}>
+    <a 
+      href={href} 
+      className={`${baseClasses} ${sizeClasses} ${variantClasses} ${className}`}
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+    >
       {children}
       {variant !== "ghost" && (
         <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" />

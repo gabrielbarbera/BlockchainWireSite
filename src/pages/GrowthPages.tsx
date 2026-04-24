@@ -283,7 +283,7 @@ export function HowItWorksPage() {
           The process takes minutes. Your coverage starts within 2 hours.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
-          <CtaLink href="/auth/signup">Get Started</CtaLink>
+          <CtaLink href="https://admin.blockchainwire.io/signup">Get Started</CtaLink>
           <CtaLink href="/pricing" variant="outline">View Pricing</CtaLink>
         </div>
       </SectionDark>
@@ -382,7 +382,7 @@ export function SampleDistributionPage() {
             Launch Your Own Distribution
           </h2>
           <div className="mt-8">
-            <CtaLink href="/auth/signup">Get Started</CtaLink>
+          <CtaLink href="https://admin.blockchainwire.io/signup">Get Started</CtaLink>
           </div>
         </div>
       </section>

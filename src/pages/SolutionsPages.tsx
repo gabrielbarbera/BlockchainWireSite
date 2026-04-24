@@ -327,7 +327,7 @@ export function SolutionsPage() {
           {/* CTA buttons */}
           <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
             <div className="flex flex-col items-center gap-1.5">
-              <CtaLink href="/auth/signup">Get Started</CtaLink>
+              <CtaLink href="https://admin.blockchainwire.io/signup">Get Started</CtaLink>
               <span className="text-xs text-white/50">No commitment required</span>
             </div>
             <div className="flex flex-col items-center gap-1.5">

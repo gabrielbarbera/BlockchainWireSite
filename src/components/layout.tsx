@@ -10,7 +10,7 @@ const TOP_BAR_LINKS = [
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const nav = [...NAV_ITEMS, { label: "Log in", href: "/auth/login" }];
+  const nav = [...NAV_ITEMS, { label: "Log in", href: "https://admin.blockchainwire.io/signin", external: true }];
 
   return (
     <>
@@ -57,7 +57,7 @@ export function Header() {
               </nav>
 
               <div className="hidden lg:flex items-center gap-4">
-                <CtaLink href="/auth/signup">Get Started</CtaLink>
+                <CtaLink href="https://admin.blockchainwire.io/signup">Get Started</CtaLink>
               </div>
 
               <button
@@ -108,7 +108,7 @@ export function Header() {
             </div>
 
             <div className="mt-8 pt-8 border-t border-ink/10">
-              <CtaLink href="/auth/signup" className="w-full justify-center">Get Started</CtaLink>
+              <CtaLink href="https://admin.blockchainwire.io/signup" className="w-full justify-center">Get Started</CtaLink>
             </div>
           </nav>
         </div>
@@ -156,12 +156,12 @@ export function Footer() {
           <div>
             <ul className="mt-0 space-y-3">
               <li>
-                <a href="/auth/signup" className="text-base text-ink/60 hover:text-ink transition-colors">
+                <a href="https://admin.blockchainwire.io/signup" target="_blank" rel="noopener noreferrer" className="text-base text-ink/60 hover:text-ink transition-colors">
                   Sign Up
                 </a>
               </li>
               <li>
-                <a href="/auth/login" className="text-base text-ink/60 hover:text-ink transition-colors">
+                <a href="https://admin.blockchainwire.io/signin" target="_blank" rel="noopener noreferrer" className="text-base text-ink/60 hover:text-ink transition-colors">
                   Log In
                 </a>
               </li>
