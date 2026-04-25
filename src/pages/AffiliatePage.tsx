@@ -11,6 +11,7 @@ function Field({
   onChange,
   id,
   error,
+  autocomplete,
 }: {
   label: string;
   type?: string;
@@ -20,6 +21,7 @@ function Field({
   onChange: (v: string) => void;
   id?: string;
   error?: string;
+  autocomplete?: string;
 }) {
   const inputId = id || label.toLowerCase().replace(/\s+/g, '-');
   const errorId = `${inputId}-error`;
@@ -40,6 +42,7 @@ function Field({
         onChange={(e) => onChange(e.target.value)}
         aria-invalid={error ? 'true' : 'false'}
         aria-describedby={error ? errorId : undefined}
+        autoComplete={autocomplete}
         className="w-full rounded-xl border border-ink/15 bg-white px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/8"
       />
       {error && (

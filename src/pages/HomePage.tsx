@@ -114,8 +114,11 @@ const REACH_STEPS = ["—", "16M+", "38M+", "54M+", "71M+", "174M+"];
 
 function DistributionCard() {
   const [step, setStep] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
+    if (isPaused) return;
+
     // Animate in each outlet, then hold, then loop
     if (step < OUTLETS.length) {
       const t = setTimeout(() => setStep((s) => s + 1), step === 0 ? 900 : 650);
@@ -124,7 +127,7 @@ function DistributionCard() {
     // Hold 2.8s, then reset and replay
     const t = setTimeout(() => setStep(0), 2800);
     return () => clearTimeout(t);
-  }, [step]);
+  }, [step, isPaused]);
 
   const progress = step / OUTLETS.length;
 
@@ -138,10 +141,29 @@ function DistributionCard() {
             Active Distribution
           </span>
         </div>
-        <span className="flex items-center gap-1.5 text-[11px] font-semibold text-primary">
-          <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-          Live
-        </span>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => setIsPaused(!isPaused)}
+            aria-label={isPaused ? 'Play animation' : 'Pause animation'}
+            aria-pressed={isPaused}
+            className="text-white/50 hover:text-white/70 transition-colors p-1"
+            title={isPaused ? 'Resume animation' : 'Pause animation'}
+          >
+            {isPaused ? (
+              <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            ) : (
+              <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+              </svg>
+            )}
+          </button>
+          <span className="flex items-center gap-1.5 text-[11px] font-semibold text-primary">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+            Live
+          </span>
+        </div>
       </div>
 
       {/* Submitted row */}

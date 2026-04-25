@@ -479,3 +479,102 @@
     animation: page-enter 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 }
+
+/* ── High Contrast Mode Support ───────────────────────────────────────────── */
+@media screen and (-ms-high-contrast: active) {
+  /* Windows High Contrast Mode support */
+  
+  /* Ensure text is readable on high contrast backgrounds */
+  * {
+    forced-color-adjust: none !important;
+  }
+  
+  /* Improve link visibility in high contrast mode */
+  a:not([href]),
+  a[href=""] {
+    color: inherit !important;
+    text-decoration: underline !important;
+  }
+  
+  /* Ensure buttons have visible borders */
+  button,
+  [role="button"],
+  input[type="submit"],
+  input[type="button"] {
+    border: 2px solid currentColor !important;
+  }
+  
+  /* Ensure focus indicators are visible */
+  :focus-visible {
+    outline: 2px solid WindowText !important;
+    outline-offset: 2px !important;
+  }
+  
+  /* Ensure images with transparent backgrounds work */
+  img {
+    background: Canvas !important;
+  }
+}
+
+/* ── Text Scaling Support (200% zoom) ─────────────────────────────────────── */
+/* Ensure containers don't break at 200% zoom */
+.container-ultra-wide,
+.container-wide,
+.max-w-6xl,
+.max-w-7xl {
+  max-width: 100%;
+}
+
+/* Ensure text doesn't overflow */
+h1, h2, h3, h4, h5, h6 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+p, span, div, li, a {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Ensure horizontal scroll isn't required (except for data tables) */
+body {
+  overflow-x: hidden;
+}
+
+/* Allow tables to scroll horizontally if needed */
+table {
+  overflow-x: auto;
+  display: block;
+  max-width: 100%;
+}
+
+/* ── Additional Focus Improvements ────────────────────────────────────────── */
+/* Ensure all interactive elements have visible focus */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Skip link focus improvement */
+a.sr-only:focus-visible {
+  clip: auto !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* ── Improved Disabled States ──────────────────────────────────────────────────── */
+button:disabled,
+[role="button"][aria-disabled="true"],
+input:disabled,
+textarea:disabled,
+select:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+button:disabled:focus-visible,
+[role="button"][aria-disabled="true"]:focus-visible {
+  opacity: 0.6;
+  outline: 2px solid currentColor;
+}
