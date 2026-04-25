@@ -1,5 +1,5 @@
 import { Menu, X, ExternalLink } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { NAV_ITEMS } from "../data/site";
 import { CtaLink } from "./ui";
 
@@ -10,7 +10,64 @@ const TOP_BAR_LINKS = [
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
   const nav = [...NAV_ITEMS, { label: "Log in", href: "https://admin.blockchainwire.io/signin", external: true }];
+
+  // Focus trap for mobile menu
+  useEffect(() => {
+    if (!mobileOpen) return;
+
+    const menu = mobileMenuRef.current;
+    if (!menu) return;
+
+    // Get all focusable elements
+    const focusableElements = menu.querySelectorAll(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    );
+    const firstElement = focusableElements[0] as HTMLElement;
+    const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+
+    // Focus first element when menu opens
+    if (firstElement) {
+      firstElement.focus();
+    }
+
+    // Handle Tab and Escape keys
+    const handleTabKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab') return;
+
+      if (e.shiftKey) {
+        // Shift+Tab
+        if (document.activeElement === firstElement) {
+          lastElement?.focus();
+          e.preventDefault();
+        }
+      } else {
+        // Tab
+        if (document.activeElement === lastElement) {
+          firstElement?.focus();
+          e.preventDefault();
+        }
+      }
+    };
+
+    const handleEscapeKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMobileOpen(false);
+        // Return focus to toggle button
+        const toggleButton = document.querySelector('[aria-label="Toggle navigation menu"]') as HTMLElement;
+        toggleButton?.focus();
+      }
+    };
+
+    menu.addEventListener('keydown', handleTabKey);
+    menu.addEventListener('keydown', handleEscapeKey);
+
+    return () => {
+      menu.removeEventListener('keydown', handleTabKey);
+      menu.removeEventListener('keydown', handleEscapeKey);
+    };
+  }, [mobileOpen]);
 
   return (
     <>
@@ -83,7 +140,7 @@ export function Header() {
       </header>
 
       {mobileOpen && (
-        <div id="mobile-menu" className="lg:hidden fixed inset-0 z-50 bg-surface">
+        <div ref={mobileMenuRef} id="mobile-menu" className="lg:hidden fixed inset-0 z-50 bg-surface">
           <div className="sticky top-0 px-4 sm:px-6 py-5 bg-surface/90 backdrop-blur-xl border-b border-ink/5">
             <div className="mx-auto max-w-6xl flex items-center justify-between">
               <img

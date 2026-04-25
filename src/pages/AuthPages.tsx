@@ -174,24 +174,27 @@ export function SignUpPage() {
         <Field label="Password" type="password" hint="Min. 8 characters" required />
         <Field label="Confirm Password" type="password" required />
 
-        <label htmlFor="terms-checkbox" className="flex items-start gap-3 cursor-pointer pt-1">
-          <input
-            id="terms-checkbox"
-            type="checkbox"
-            required
-            className="mt-0.5 h-4 w-4 flex-shrink-0 rounded border-ink/20 accent-primary"
-          />
-          <span className="text-xs text-ink/50 leading-relaxed">
-            I agree to the{" "}
-            <a href="/company/legal#terms" className="text-primary hover:underline">
-              Terms of Service
-            </a>{" "}
-            and{" "}
-            <a href="/company/legal#privacy" className="text-primary hover:underline">
-              Privacy Policy
-            </a>
-          </span>
-        </label>
+        <fieldset>
+          <legend className="sr-only">Terms and Conditions</legend>
+          <label htmlFor="terms-checkbox" className="flex items-start gap-3 cursor-pointer pt-1">
+            <input
+              id="terms-checkbox"
+              type="checkbox"
+              required
+              className="mt-0.5 h-4 w-4 flex-shrink-0 rounded border-ink/20 accent-primary"
+            />
+            <span className="text-xs text-ink/50 leading-relaxed">
+              I agree to the{" "}
+              <a href="/company/legal#terms" className="text-primary hover:underline">
+                Terms of Service
+              </a>{" "}
+              and{" "}
+              <a href="/company/legal#privacy" className="text-primary hover:underline">
+                Privacy Policy
+              </a>
+            </span>
+          </label>
+        </fieldset>
 
         <div className="pt-2">
           <SubmitButton>Create Account</SubmitButton>

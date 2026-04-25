@@ -367,3 +367,115 @@
 ::-webkit-scrollbar-thumb:hover {
   background: color-mix(in oklab, var(--color-primary) 50%, transparent);
 }
+
+/* ── Reduced Motion Support ─────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  /* Respect user's motion preferences throughout the site */
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Disable all auto-playing animations */
+  .animate-marquee,
+  .animate-marquee-slow,
+  .animate-marquee-reverse,
+  .animate-pulse-glow,
+  .animate-terminal-blink,
+  .animate-fade-in-up,
+  .animate-menu-appear,
+  .animate-menu-item-appear,
+  .animate-nav-progress,
+  .animate-page-exit,
+  .animate-page-enter,
+  .animate-loading-screen {
+    animation: none !important;
+  }
+  
+  /* Keep essential transitions very fast */
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  [tabindex] {
+    transition: opacity 0.01ms !important;
+  }
+  
+  /* Remove smooth scroll */
+  html {
+    scroll-behavior: auto !important;
+  }
+  
+  /* Disable button glow animations */
+  .btn-glow,
+  .btn-glow-hover:hover {
+    animation: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Disable text glow effects */
+  .text-glow,
+  .text-glow-strong,
+  .text-glow-subtle {
+    text-shadow: none !important;
+  }
+}
+
+/* Ensure animations work when motion is allowed */
+@media (prefers-reduced-motion: no-preference) {
+  /* All existing animations function normally */
+  
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
+  
+  .animate-marquee-slow {
+    animation: marquee 60s linear infinite;
+  }
+  
+  .animate-marquee-reverse {
+    animation: marquee 40s linear infinite reverse;
+  }
+  
+  .animate-menu-appear {
+    animation: menu-appear 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  .animate-menu-item-appear {
+    animation: menu-item-appear 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  .animate-terminal-blink {
+    animation: terminal-blink 1s step-end infinite;
+  }
+  
+  .animate-fade-in-up {
+    animation: fade-in-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  .animate-loading-screen {
+    animation: loading-progress 2s ease-out forwards;
+  }
+  
+  .animate-nav-progress {
+    animation: nav-progress 0.52s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  
+  .animate-page-exit {
+    animation: page-exit 0.18s cubic-bezier(0.4, 0, 0.6, 1) forwards;
+  }
+  
+  .animate-page-enter {
+    animation: page-enter 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}

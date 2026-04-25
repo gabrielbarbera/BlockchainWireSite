@@ -344,7 +344,7 @@ function FilterSidebar({
       </div>
 
       <div className="border-t border-ink/5 pt-4">
-        <p className="text-xs text-ink/40">
+        <p className="text-xs text-ink/40" aria-live="polite" aria-atomic="true">
           <span className="font-semibold text-ink/65">{resultCount}</span>{" "}
           {resultCount === 1 ? "result" : "results"} found
         </p>

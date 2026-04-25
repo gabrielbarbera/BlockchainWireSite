@@ -65,6 +65,17 @@ export default function App() {
       window.scrollTo({ top: 0, behavior: "instant" });
       setDisplayedPath(path);
       setPhase("in");
+
+      // Move focus to main content heading after page transition (accessibility)
+      requestAnimationFrame(() => {
+        const mainContent = document.getElementById('main-content');
+        const heading = mainContent?.querySelector('h1, h2') as HTMLElement;
+        if (heading) {
+          heading.setAttribute('tabindex', '-1');
+          heading.focus();
+        }
+      });
+
       enterTimer = setTimeout(() => setPhase("idle"), ENTER_MS);
     }, EXIT_MS);
 

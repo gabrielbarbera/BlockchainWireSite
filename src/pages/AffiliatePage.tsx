@@ -9,6 +9,8 @@ function Field({
   required = false,
   value,
   onChange,
+  id,
+  error,
 }: {
   label: string;
   type?: string;
@@ -16,21 +18,40 @@ function Field({
   required?: boolean;
   value: string;
   onChange: (v: string) => void;
+  id?: string;
+  error?: string;
 }) {
+  const inputId = id || label.toLowerCase().replace(/\s+/g, '-');
+  const errorId = `${inputId}-error`;
+
   return (
-    <label className="block">
-      <span className="mb-2 block text-xs font-bold uppercase tracking-[0.16em] text-ink/60">
-        {label}
-        {required && <span className="text-primary ml-1">*</span>}
-      </span>
+    <div>
+      <label htmlFor={inputId} className="block">
+        <span className="mb-2 block text-xs font-bold uppercase tracking-[0.16em] text-ink/60">
+          {label}
+          {required && <span className="text-primary ml-1">*</span>}
+        </span>
+      </label>
       <input
+        id={inputId}
         type={type}
         placeholder={placeholder}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full rounded-xl border border-ink/15 bg-white px-4 py-3 text-sm outline-none transition focus:border-primary"
+        aria-invalid={error ? 'true' : 'false'}
+        aria-describedby={error ? errorId : undefined}
+        className="w-full rounded-xl border border-ink/15 bg-white px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/8"
       />
-    </label>
+      {error && (
+        <p
+          id={errorId}
+          className="mt-1 text-xs text-red-500"
+          role="alert"
+        >
+          {error}
+        </p>
+      )}
+    </div>
   );
 }
 
