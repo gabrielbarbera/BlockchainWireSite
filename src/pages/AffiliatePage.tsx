@@ -244,12 +244,12 @@ export function AffiliatePage() {
 
               <p className="mt-4 text-xs text-ink/45">
                 By submitting, you agree to our{" "}
-                <a href="/legal/terms" className="text-primary-dark hover:underline">
+                <a href="/company/legal#terms" className="text-primary-dark hover:underline">
                   Terms of Service
                 </a>{" "}
                 and{" "}
                 <a
-                  href="/legal/privacy"
+                  href="/company/legal#privacy"
                   className="text-primary-dark hover:underline"
                 >
                   Privacy Policy

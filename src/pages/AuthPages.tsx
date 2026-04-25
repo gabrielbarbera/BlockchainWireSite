@@ -181,11 +181,11 @@ export function SignUpPage() {
           />
           <span className="text-xs text-ink/50 leading-relaxed">
             I agree to the{" "}
-            <a href="/legal/terms" className="text-primary hover:underline">
+            <a href="/company/legal#terms" className="text-primary hover:underline">
               Terms of Service
             </a>{" "}
             and{" "}
-            <a href="/legal/privacy" className="text-primary hover:underline">
+            <a href="/company/legal#privacy" className="text-primary hover:underline">
               Privacy Policy
             </a>
           </span>

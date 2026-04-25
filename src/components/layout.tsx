@@ -170,11 +170,6 @@ export function Footer() {
                   Contact Us
                 </a>
               </li>
-              <li>
-                <a href="/affiliate" className="text-base text-ink/60 hover:text-ink transition-colors">
-                  Join Affiliate Program
-                </a>
-              </li>
             </ul>
           </div>
 
