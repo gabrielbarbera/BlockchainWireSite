@@ -200,7 +200,7 @@ export function HowItWorksPage() {
                   <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-display font-black uppercase tracking-[-0.04em] leading-[0.9]">
                     {phase.title}
                   </h2>
-                  <p className="mt-4 max-w-2xl text-ink/55 text-base sm:text-lg leading-relaxed">
+                  <p className="mt-4 max-w-2xl text-ink/70 text-base sm:text-lg leading-relaxed">
                     {phase.subtitle}
                   </p>
                 </div>
@@ -270,7 +270,7 @@ export function HowItWorksPage() {
             {FAQS.map((faq) => (
               <Card key={faq.q}>
                 <h3 className="font-semibold text-ink leading-snug">{faq.q}</h3>
-                <p className="mt-3 text-sm text-ink/55 leading-relaxed">{faq.a}</p>
+                <p className="mt-3 text-sm text-ink/70 leading-relaxed">{faq.a}</p>
               </Card>
             ))}
           </div>
@@ -448,7 +448,7 @@ export function ReleasePerformanceInsightsPage() {
           ["Placement Quality Tier", "Tier 1 + Tier 2 mix"],
         ].map(([label, value]) => (
           <article key={label} className="rounded-2xl border border-ink/10 bg-white p-5">
-            <p className="text-xs uppercase tracking-[0.16em] text-ink/55">{label}</p>
+            <p className="text-xs uppercase tracking-[0.16em] text-ink/70">{label}</p>
             <p className="mt-2 text-2xl font-bold">{value}</p>
           </article>
         ))}

@@ -176,6 +176,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-paper text-ink antialiased">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg">
+        Skip to main content
+      </a>
       {isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}
 
       {/* Navigation progress bar */}
@@ -188,12 +191,14 @@ export default function App() {
 
       <Header />
 
-      <div
-        className={transitionClass}
-        style={phase !== "idle" ? { willChange: "opacity, transform" } : undefined}
-      >
-        {content}
-      </div>
+      <main id="main-content">
+        <div
+          className={transitionClass}
+          style={phase !== "idle" ? { willChange: "opacity, transform" } : undefined}
+        >
+          {content}
+        </div>
+      </main>
 
       {showFloatingCTA && !path.startsWith("/dashboard") && (
         <a

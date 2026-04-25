@@ -143,7 +143,7 @@ export function ResultsOverviewPage() {
           </p>
           <div className="mt-6 overflow-hidden rounded-3xl border border-ink/10">
             <table className="w-full text-left text-sm">
-              <thead className="bg-slate-50 text-xs uppercase tracking-[0.18em] text-ink/55">
+              <thead className="bg-slate-50 text-xs uppercase tracking-[0.18em] text-ink/70">
                 <tr>
                   <th className="px-4 py-3">Title</th>
                   <th className="px-4 py-3">Company</th>

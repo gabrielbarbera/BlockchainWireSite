@@ -195,7 +195,7 @@ export function ProductsPage() {
                   <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-display font-black uppercase tracking-[-0.04em] leading-[0.9]">
                     {p.heroTitle}
                   </h2>
-                  <p className="mt-4 max-w-2xl text-ink/55 text-base sm:text-lg leading-relaxed">
+                  <p className="mt-4 max-w-2xl text-ink/70 text-base sm:text-lg leading-relaxed">
                     {p.heroSubtitle}
                   </p>
                 </div>

@@ -11,14 +11,6 @@ export function getSeoForPath(pathname: string): {
     };
   }
 
-  if (pathname === "/company/legal") {
-    return {
-      title: "Legal | BlockchainWire",
-      description:
-        "Review BlockchainWire legal documents, including privacy policy and terms and conditions.",
-    };
-  }
-
   const route = SITEMAP[pathname];
   if (!route) {
     return {

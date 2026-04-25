@@ -304,7 +304,7 @@ export function HomePage() {
             <img
               key={i}
               src={logo.src}
-              alt={logo.name}
+              alt=""
               className="h-7 w-auto flex-shrink-0 opacity-30 brightness-0 invert transition-opacity hover:opacity-70"
             />
           ))}
@@ -454,7 +454,7 @@ export function HomePage() {
                 <h3 className="text-xl font-display font-bold text-ink group-hover:text-primary transition-colors">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-ink/55">
+                <p className="mt-3 text-sm leading-relaxed text-ink/70">
                   {item.description}
                 </p>
               </div>
@@ -481,7 +481,7 @@ export function HomePage() {
               <h2 className="headline-section mt-4 text-ink">
                 Built for every stage of Web3
               </h2>
-              <p className="mt-5 text-ink/55 leading-relaxed">
+              <p className="mt-5 text-ink/70 leading-relaxed">
                 From early-stage startups to public companies, BlockchainWire adapts to
                 your distribution needs and audience.
               </p>
@@ -642,7 +642,7 @@ export function HomePage() {
                   <p className="mt-1 text-[10px] font-semibold uppercase tracking-widest text-ink/35">
                     {plan.subtitle}
                   </p>
-                  <p className="mt-5 text-sm leading-relaxed text-ink/55">{plan.summary}</p>
+                  <p className="mt-5 text-sm leading-relaxed text-ink/70">{plan.summary}</p>
                   <div className="mt-7">
                     <CtaLink href="/pricing" variant="outline" className="w-full justify-center">
                       Select Package

@@ -103,7 +103,7 @@ function FeaturedNewsCard({ item }: { item: NewsItem }) {
         <h2 className="text-2xl sm:text-3xl font-display font-bold text-ink/90 leading-snug group-hover:text-ink transition-colors">
           {item.title}
         </h2>
-        <p className="mt-4 text-ink/55 leading-relaxed line-clamp-3 max-w-2xl">
+        <p className="mt-4 text-ink/70 leading-relaxed line-clamp-3 max-w-2xl">
           {stripHtml(item.description)}
         </p>
         <div className="mt-6 flex items-center gap-3 border-t border-ink/5 pt-5">
@@ -305,7 +305,7 @@ function FilterSidebar({
               className={`flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left text-sm transition-all duration-200 ${
                 dateRange === value
                   ? "bg-primary/10 text-primary-dark font-medium"
-                  : "text-ink/55 hover:bg-ink/5 hover:text-ink"
+                  : "text-ink/70 hover:bg-ink/5 hover:text-ink"
               }`}
             >
               <span
@@ -510,7 +510,7 @@ export function NewsroomPage() {
               {/* Error */}
               {error && (
                 <div className="rounded-2xl border border-ink/10 bg-white p-10 text-center">
-                  <p className="text-ink/55 mb-4">Unable to load the live feed. Industry news is still available.</p>
+                  <p className="text-ink/70 mb-4">Unable to load the live feed. Industry news is still available.</p>
                   <button
                     onClick={() => window.location.reload()}
                     className="text-sm font-medium text-primary-dark hover:underline"
@@ -523,7 +523,7 @@ export function NewsroomPage() {
               {/* Empty state */}
               {!loading && !error && filteredNews.length === 0 && (
                 <div className="rounded-2xl border border-ink/10 bg-white p-10 text-center">
-                  <p className="text-ink/55">No results match your current filters.</p>
+                  <p className="text-ink/70">No results match your current filters.</p>
                   <button
                     onClick={handleReset}
                     className="mt-3 text-sm font-medium text-primary hover:underline"

@@ -219,21 +219,37 @@ export function CompanyDetailPage({ path }: { path: string }) {
         <section className="bg-slate-50 border-y border-ink/10">
           <div className="mx-auto max-w-6xl px-6 py-16">
               <Card>
-               <h2 className="text-xl font-semibold">Inquiry Form</h2>
-               <form className="mt-4 grid gap-4 md:grid-cols-2">
-                 <input className="rounded-xl border border-ink/15 px-4 py-3" placeholder="Name" />
-                 <input className="rounded-xl border border-ink/15 px-4 py-3" placeholder="Email" />
-                 <input className="rounded-xl border border-ink/15 px-4 py-3" placeholder="Company" />
-                 <input className="rounded-xl border border-ink/15 px-4 py-3" placeholder="Inquiry Type" />
-                 <textarea
-                   className="rounded-xl border border-ink/15 px-4 py-3 md:col-span-2 min-h-28"
-                   placeholder="Message"
-                 />
-                 <div className="md:col-span-2">
-                   <CtaLink href="mailto:info@blockchainwire.io">Send Inquiry</CtaLink>
-                 </div>
-               </form>
-             </Card>
+                <h2 className="text-xl font-semibold">Inquiry Form</h2>
+                <form className="mt-4 grid gap-4 md:grid-cols-2">
+                  <div>
+                    <label htmlFor="contact-name" className="sr-only">Name</label>
+                    <input id="contact-name" className="rounded-xl border border-ink/15 px-4 py-3 w-full" placeholder="Name" />
+                  </div>
+                  <div>
+                    <label htmlFor="contact-email" className="sr-only">Email</label>
+                    <input id="contact-email" type="email" className="rounded-xl border border-ink/15 px-4 py-3 w-full" placeholder="Email" />
+                  </div>
+                  <div>
+                    <label htmlFor="contact-company" className="sr-only">Company</label>
+                    <input id="contact-company" className="rounded-xl border border-ink/15 px-4 py-3 w-full" placeholder="Company" />
+                  </div>
+                  <div>
+                    <label htmlFor="contact-type" className="sr-only">Inquiry Type</label>
+                    <input id="contact-type" className="rounded-xl border border-ink/15 px-4 py-3 w-full" placeholder="Inquiry Type" />
+                  </div>
+                  <div className="md:col-span-2">
+                    <label htmlFor="contact-message" className="sr-only">Message</label>
+                    <textarea
+                      id="contact-message"
+                      className="rounded-xl border border-ink/15 px-4 py-3 w-full min-h-28"
+                      placeholder="Message"
+                    />
+                  </div>
+                  <div className="md:col-span-2">
+                    <CtaLink href="mailto:info@blockchainwire.io">Send Inquiry</CtaLink>
+                  </div>
+                </form>
+              </Card>
           </div>
         </section>
       )}

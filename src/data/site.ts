@@ -203,6 +203,14 @@ export const SITEMAP: Record<string, RouteData> = {
     seoTitle: "Legal and Compliance | BlockchainWire",
     seoDescription: "Terms of service, privacy policy, and disclaimers for the BlockchainWire press release distribution platform.",
   },
+  "/affiliate": {
+    title: "Affiliate Program",
+    intro: "Earn commissions by referring clients to BlockchainWire.",
+    sections: ["Apply", "Program benefits", "Commission structure"],
+    seoTitle: "BlockchainWire Affiliate Program | Earn Commissions",
+    seoDescription: "Join the BlockchainWire affiliate program and earn up to 25% commissions referring clients to the leading Web3 PR distribution platform.",
+    robots: "noindex, nofollow",
+  },
   "/auth/signup": {
     title: "Sign Up",
     intro: "Create your account to begin distribution and reporting.",

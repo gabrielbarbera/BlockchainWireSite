@@ -228,7 +228,7 @@ export function PricingPage() {
           </h2>
           <div className="mt-7 overflow-hidden rounded-3xl border border-ink/10">
             <table className="w-full text-left">
-              <thead className="bg-slate-50 text-xs uppercase tracking-[0.18em] text-ink/55">
+              <thead className="bg-slate-50 text-xs uppercase tracking-[0.18em] text-ink/70">
                 <tr>
                   <th className="px-5 py-4">Publication</th>
                   <th className="px-5 py-4">Monthly Visitors</th>

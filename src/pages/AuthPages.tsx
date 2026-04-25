@@ -23,7 +23,7 @@ function Field({
           {label}
           {required && <span className="text-primary ml-0.5">*</span>}
         </span>
-        {hint && <span className="text-xs text-ink/55">{hint}</span>}
+        {hint && <span className="text-xs text-ink/70">{hint}</span>}
       </div>
       <input
         type={type}
@@ -174,9 +174,11 @@ export function SignUpPage() {
         <Field label="Password" type="password" hint="Min. 8 characters" required />
         <Field label="Confirm Password" type="password" required />
 
-        <label className="flex items-start gap-3 cursor-pointer pt-1">
+        <label htmlFor="terms-checkbox" className="flex items-start gap-3 cursor-pointer pt-1">
           <input
+            id="terms-checkbox"
             type="checkbox"
+            required
             className="mt-0.5 h-4 w-4 flex-shrink-0 rounded border-ink/20 accent-primary"
           />
           <span className="text-xs text-ink/50 leading-relaxed">
@@ -338,7 +340,7 @@ export function ForgotPasswordPage() {
         </a>
       </div>
 
-      <div className="mt-4 text-xs text-ink/55">
+      <div className="mt-4 text-xs text-ink/70">
         Need help?{" "}
         <a href="/company/contact" className="text-primary-dark hover:underline">
           Contact Support
@@ -479,11 +481,11 @@ export function SubmitPressReleasePage() {
         </section>
         <section className="rounded-2xl border border-ink/10 bg-white p-6">
           <h2 className="text-xl font-semibold">2. Content</h2>
-          <label className="mt-4 block">
+          <label htmlFor="press-release-body" className="mt-4 block">
             <span className="mb-2 block text-xs font-bold uppercase tracking-[0.16em] text-ink/60">
               Full press release body
             </span>
-            <textarea className="min-h-52 w-full rounded-xl border border-ink/15 px-4 py-3" />
+            <textarea id="press-release-body" className="min-h-52 w-full rounded-xl border border-ink/15 px-4 py-3" />
           </label>
         </section>
         <section className="rounded-2xl border border-ink/10 bg-white p-6">
@@ -495,11 +497,11 @@ export function SubmitPressReleasePage() {
         </section>
         <section className="rounded-2xl border border-ink/10 bg-white p-6">
           <h2 className="text-xl font-semibold">4. Distribution Selection</h2>
-          <label className="mt-4 block">
+          <label htmlFor="package-select" className="mt-4 block">
             <span className="mb-2 block text-xs font-bold uppercase tracking-[0.16em] text-ink/60">
               Choose package
             </span>
-            <select className="w-full rounded-xl border border-ink/15 px-4 py-3 text-sm">
+            <select id="package-select" className="w-full rounded-xl border border-ink/15 px-4 py-3 text-sm">
               <option>Copper</option>
               <option>Silver</option>
               <option>Gold</option>
