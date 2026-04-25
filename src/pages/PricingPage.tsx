@@ -173,17 +173,19 @@ export function PricingPage() {
 
           <div className="mt-7 inline-flex rounded-full border border-ink/10 bg-slate-50 p-1">
             <button
+              aria-pressed={view === "crypto"}
               className={`rounded-full px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] ${
-                view === "crypto" ? "bg-primary text-white" : "text-ink/60"
-              }`}
+                view === "crypto" ? "bg-primary text-white" : "text-ink/80"
+              } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2`}
               onClick={() => setView("crypto")}
             >
               Crypto Circuits
             </button>
             <button
+              aria-pressed={view === "media"}
               className={`rounded-full px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] ${
-                view === "media" ? "bg-primary text-white" : "text-ink/60"
-              }`}
+                view === "media" ? "bg-primary text-white" : "text-ink/80"
+              } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2`}
               onClick={() => setView("media")}
             >
               Media Circuits

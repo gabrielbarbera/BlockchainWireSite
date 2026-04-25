@@ -228,7 +228,7 @@ export function LoginPage() {
           <h2 className="text-3xl xl:text-4xl font-display font-black uppercase tracking-[-0.04em] leading-[0.92] mb-4">
             Welcome Back
           </h2>
-          <p className="text-white/50 text-sm leading-relaxed mb-10">
+          <p className="text-white/70 text-sm leading-relaxed mb-10">
             Access your dashboard to manage distributions, track placements, and launch new announcements.
           </p>
           <ul className="space-y-4">
@@ -297,7 +297,7 @@ export function ForgotPasswordPage() {
           <h2 className="text-3xl font-display font-black uppercase tracking-[-0.04em] leading-[0.92] mb-4">
             Account Security
           </h2>
-          <p className="text-white/50 text-sm leading-relaxed mb-8">
+          <p className="text-white/70 text-sm leading-relaxed mb-8">
             We'll send a secure reset link to your registered email address. The link expires after 24 hours.
           </p>
           <ul className="space-y-3">
@@ -308,9 +308,9 @@ export function ForgotPasswordPage() {
             ].map((item) => (
               <li key={item} className="flex items-start gap-3">
                 <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/8 flex-shrink-0 mt-0.5">
-                  <Check className="w-3 h-3 text-white/50" />
+                  <Check className="w-3 h-3 text-white/70" />
                 </span>
-                <span className="text-sm text-white/50 leading-snug">{item}</span>
+                <span className="text-sm text-white/70 leading-snug">{item}</span>
               </li>
             ))}
           </ul>
@@ -360,7 +360,7 @@ export function ResetPasswordPage() {
           <h2 className="text-3xl font-display font-black uppercase tracking-[-0.04em] leading-[0.92] mb-4">
             Almost Done
           </h2>
-          <p className="text-white/50 text-sm leading-relaxed">
+          <p className="text-white/70 text-sm leading-relaxed">
             Choose a strong, unique password. Once updated, you'll be taken to your dashboard.
           </p>
           <div className="mt-8 rounded-2xl bg-white/5 border border-white/8 p-5 space-y-2">

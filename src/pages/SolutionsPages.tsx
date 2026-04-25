@@ -255,7 +255,7 @@ export function SolutionsPage() {
                   {s.useCases.map((uc) => (
                     <span
                       key={uc}
-                      className="rounded-full bg-slate-100 border border-ink/[0.06] px-3.5 py-1.5 text-sm font-medium text-ink/60"
+                      className="rounded-full bg-slate-100 border border-ink/[0.06] px-3.5 py-1.5 text-sm font-medium text-ink/80"
                     >
                       {uc}
                     </span>

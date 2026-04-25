@@ -116,7 +116,7 @@ export function Section({
     <section className={`${muted ? "bg-surface-alt" : "bg-surface"} section-spacing ${className}`}>
       <div className={`${containerClass} px-6`}>
         <h2 className={`${headingSize} text-ink`}>{heading}</h2>
-        {subheading && <p className="mt-6 text-xl text-ink/60 max-w-3xl">{subheading}</p>}
+        {subheading && <p className="mt-6 text-xl text-ink/80 max-w-3xl">{subheading}</p>}
         <div className="mt-12 space-y-6 text-lg text-ink/70">{children}</div>
       </div>
     </section>
@@ -454,7 +454,7 @@ export function ProcessStep({
       </div>
       <div className="flex-1">
         <h4 className="font-display font-semibold text-ink text-lg">{title}</h4>
-        <p className="mt-2 text-ink/60 text-sm">{description}</p>
+        <p className="mt-2 text-ink/80 text-sm">{description}</p>
       </div>
     </div>
   );
@@ -501,5 +501,31 @@ export function DarkHeroSection({
         </div>
       </div>
     </section>
+  );
+}
+
+// ==================== EXTERNAL LINK ====================
+export function ExternalLink({
+  href,
+  children,
+  className,
+  ariaLabel,
+}: {
+  href: string;
+  children: React.ReactNode;
+  className?: string;
+  ariaLabel?: string;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={className}
+      aria-label={ariaLabel || (typeof children === 'string' ? `${children} (opens in new tab)` : 'Opens in new tab')}
+    >
+      {children}
+      <span className="sr-only"> (opens in new tab)</span>
+    </a>
   );
 }

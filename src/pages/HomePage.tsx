@@ -361,7 +361,7 @@ export function HomePage() {
                     "No presence in search or AI discovery systems",
                     "Trust has to be earned from scratch every time",
                   ].map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm text-white/40">
+                    <li key={item} className="flex items-start gap-3 text-sm text-white/60">
                       <span className="mt-0.5 flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full bg-white/6">
                         <X className="w-2.5 h-2.5" />
                       </span>
@@ -567,28 +567,30 @@ export function HomePage() {
               <span className="text-primary-dark">for every stage</span>
             </h2>
             {/* Toggle */}
-            <div className="inline-flex flex-shrink-0 rounded-2xl border border-ink/10 bg-surface p-1">
-              <button
-                onClick={() => setPricingView("crypto")}
-                className={`rounded-xl px-5 py-2.5 text-xs font-bold uppercase tracking-wide transition-all duration-200 ${
-                  pricingView === "crypto"
-                    ? "bg-ink text-white shadow-subtle"
-                    : "text-ink/50 hover:text-ink"
-                }`}
-              >
-                Crypto Circuits
-              </button>
-              <button
-                onClick={() => setPricingView("media")}
-                className={`rounded-xl px-5 py-2.5 text-xs font-bold uppercase tracking-wide transition-all duration-200 ${
-                  pricingView === "media"
-                    ? "bg-ink text-white shadow-subtle"
-                    : "text-ink/50 hover:text-ink"
-                }`}
-              >
-                Media Circuits
-              </button>
-            </div>
+             <div className="inline-flex flex-shrink-0 rounded-2xl border border-ink/10 bg-surface p-1">
+               <button
+                 onClick={() => setPricingView("crypto")}
+                 aria-pressed={pricingView === "crypto"}
+                 className={`rounded-xl px-5 py-2.5 text-xs font-bold uppercase tracking-wide transition-all duration-200 ${
+                   pricingView === "crypto"
+                     ? "bg-ink text-white shadow-subtle"
+                     : "text-ink/50 hover:text-ink"
+                 } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2`}
+               >
+                 Crypto Circuits
+               </button>
+               <button
+                 onClick={() => setPricingView("media")}
+                 aria-pressed={pricingView === "media"}
+                 className={`rounded-xl px-5 py-2.5 text-xs font-bold uppercase tracking-wide transition-all duration-200 ${
+                   pricingView === "media"
+                     ? "bg-ink text-white shadow-subtle"
+                     : "text-ink/50 hover:text-ink"
+                 } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2`}
+               >
+                 Media Circuits
+               </button>
+             </div>
           </div>
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

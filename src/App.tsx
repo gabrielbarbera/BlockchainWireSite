@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Footer, Header } from "./components/layout";
 import { LoadingScreen } from "./components/LoadingScreen";
-import { CtaLink, ReferralCodeBox } from "./components/ui";
+import { CtaLink, ReferralCodeBox, ExternalLink } from "./components/ui";
 import { SITEMAP } from "./data/site";
 import { applySeo } from "./lib/seo";
 import { AffiliatePage } from "./pages/AffiliatePage";
@@ -159,7 +159,7 @@ export default function App() {
     return (
       <main className="mx-auto max-w-4xl px-6 py-20 text-center">
         <h1 className="text-4xl font-display font-bold">Page Not Found</h1>
-        <p className="mt-4 text-ink/70">
+        <p className="mt-4 text-ink/85">
           This route is ready for future expansion.
         </p>
         <div className="mt-8">
@@ -176,7 +176,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-paper text-ink antialiased">
-      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg focus:ring-2 focus:ring-primary focus:ring-offset-2">
         Skip to main content
       </a>
       {isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}
@@ -201,15 +201,13 @@ export default function App() {
       </main>
 
       {showFloatingCTA && !path.startsWith("/dashboard") && (
-        <a
+        <ExternalLink
           href="https://admin.blockchainwire.io/signup"
-          target="_blank"
-          rel="noopener noreferrer"
           className="group fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.1em] text-white btn-glow btn-glow-hover hover:-translate-y-0.5 transition-all duration-300 animate-pulse-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
         >
           Submit Press Release
           <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" />
-        </a>
+        </ExternalLink>
       )}
 
       <Footer />

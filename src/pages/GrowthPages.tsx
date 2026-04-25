@@ -279,7 +279,7 @@ export function HowItWorksPage() {
 
       {/* ── CTA ────────────────────────────────────────────────────────── */}
       <SectionDark title="Ready to Launch Your First Distribution?">
-        <p className="mt-4 max-w-xl text-white/50">
+        <p className="mt-4 max-w-xl text-white/70">
           The process takes minutes. Your coverage starts within 2 hours.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">

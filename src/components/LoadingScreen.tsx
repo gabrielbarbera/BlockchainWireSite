@@ -32,9 +32,9 @@ export function LoadingScreen({ onComplete }: { onComplete: () => void }) {
         {/* Progress Bar */}
         <div className="w-80">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-xs font-mono text-white/40 uppercase tracking-widest">Loading</span>
+            <span className="text-xs font-mono text-white/60 uppercase tracking-widest">Loading</span>
             <span className="sr-only">{Math.round(progress)}% complete</span>
-            <span aria-hidden="true" className="text-xs font-mono text-white/40">{Math.round(progress)}%</span>
+            <span aria-hidden="true" className="text-xs font-mono text-white/60">{Math.round(progress)}%</span>
           </div>
           <div
             role="progressbar"
