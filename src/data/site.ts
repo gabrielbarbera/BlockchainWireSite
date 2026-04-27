@@ -20,9 +20,9 @@ export const NAV_ITEMS: NavItem[] = [
 export const SITEMAP: Record<string, RouteData> = {
   "/": {
     title: "Home",
-    intro: "Web3 press release distribution to AP News, Yahoo Finance, Business Insider, and 1,200+ outlets.",
+    intro: "Web3 press release distribution to AP News, Business Insider, and 1,200+ outlets.",
     seoTitle: "BlockchainWire | Web3 Press Release Distribution",
-    seoDescription: "Distribute Web3 and crypto announcements to AP News, Yahoo Finance, Business Insider, and 1,200+ outlets. Build authority that moves markets.",
+    seoDescription: "Distribute Web3 and crypto announcements to AP News, Business Insider, and 1,200+ outlets. Build authority that moves markets.",
   },
   "/solutions": {
     title: "Solutions",

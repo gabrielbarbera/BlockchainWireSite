@@ -264,7 +264,7 @@ export function HomePage() {
             <div>
               <Badge variant="accent">Web3 PR Distribution</Badge>
 
-              <h1 className="mt-6 font-display font-black text-white tracking-[-0.05em] leading-[0.9] text-[clamp(2.8rem,7.5vw,6.5rem)]">
+              <h1 className="mt-6 font-display font-black text-white tracking-[-0.05em] leading-[0.9] text-[clamp(2.8rem,7.5vw,6.5rem)] hyphens-none">
                 <span className="block">
                   Start Dominating{" "}
                   <span className="whitespace-nowrap">
@@ -279,7 +279,7 @@ export function HomePage() {
 
               <p className="mt-8 max-w-lg text-lg leading-relaxed text-white/60">
                 Your announcements deserve more than social media posts. Get featured on
-                AP News, Business Insider, Yahoo Finance, and 1200+ outlets that signal
+                AP News, Business Insider, and 1200+ outlets that signal
                 real authority to investors, partners, and markets.
               </p>
 

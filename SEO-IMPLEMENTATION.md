@@ -6,7 +6,7 @@ All SEO improvements have been successfully implemented for the BlockchainWire w
 
 ### 1. **index.html** - Homepage Meta Tags & GTM
 - ✅ Updated title to "BlockchainWire | Web3 Press Release Distribution"
-- ✅ Enhanced meta description with key media outlets (AP News, Yahoo Finance, Business Insider)
+- ✅ Enhanced meta description with key media outlets (AP News, Business Insider)
 - ✅ Added comprehensive meta keywords
 - ✅ Enhanced Open Graph tags with image dimensions and alt text
 - ✅ Added Twitter card meta tags with full details

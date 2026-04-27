@@ -1,6 +1,6 @@
 # BlockchainWire
 
-> Web3 press release distribution to AP News, Yahoo Finance, Business Insider, and 1,200+ financial and crypto media outlets. Google News indexed. Up to 82M reach.
+> Web3 press release distribution to AP News, Business Insider, and 1,200+ financial and crypto media outlets. Google News indexed. Up to 82M reach.
 
 BlockchainWire is a press release distribution service built specifically for Web3, blockchain, cryptocurrency, DeFi, NFT, and digital asset companies. Releases are syndicated across tier-1 financial media, crypto-native outlets, and global newswire networks. Content is optimized for search, AI answer engines, and traditional financial media indexing.
 

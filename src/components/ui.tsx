@@ -301,7 +301,7 @@ export function TerminalAnimation({
 }) {
   const defaultSteps = [
     { number: "01", text: "initializing_deep_scan..." },
-    { number: "02", text: "crawling: yahoo_finance, business_insider" },
+    { number: "02", text: "crawling: business_insider" },
     { number: "03", text: "extracting_authority_signals..." },
     { number: "04", text: "MATCH_FOUND: [HIGH_AUTHORITY_VERIFIED]" },
     { number: "05", text: "UPDATING_LLM_KNOWLEDGE_BASE..." },
