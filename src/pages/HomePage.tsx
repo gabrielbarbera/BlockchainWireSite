@@ -264,7 +264,7 @@ export function HomePage() {
             <div>
               <Badge variant="accent">Web3 PR Distribution</Badge>
 
-              <h1 className="mt-6 font-display font-black text-white tracking-[-0.05em] leading-[0.9] text-[clamp(2.8rem,7.5vw,6.5rem)] hyphens-none">
+              <h1 className="mt-6 font-display font-black text-white tracking-[-0.05em] leading-[0.9] text-[clamp(2.8rem,7.5vw,6.5rem)]">
                 <span className="block">
                   Start Dominating{" "}
                   <span className="whitespace-nowrap">
