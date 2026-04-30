@@ -4,7 +4,6 @@ import { useNewsroomFeed } from "../hooks/useNewsroomFeed";
 import type { NewsItem } from "../types/newsroom";
 import {
   Clock,
-  ExternalLink,
   ArrowRight,
   Search,
   SlidersHorizontal,
@@ -56,9 +55,7 @@ function CategoryBadge({ category }: { category: string }) {
 function FeaturedNewsCard({ item }: { item: NewsItem }) {
   return (
     <a
-      href={item.link}
-      target={item.link === "#" ? "_self" : "_blank"}
-      rel="noopener noreferrer"
+      href={`/press-release/${item.slug}`}
       className="group mb-5 flex flex-col rounded-3xl border border-ink/10 bg-white p-8 lg:p-10 transition-all duration-300 hover:shadow-lg hover:border-ink/20 lg:flex-row lg:gap-12"
     >
       <div className="flex-1 min-w-0">
@@ -81,7 +78,7 @@ function FeaturedNewsCard({ item }: { item: NewsItem }) {
           )}
           <div className="ml-auto flex items-center gap-1.5 text-sm font-semibold text-primary-dark">
             Read Article
-            <ExternalLink className="w-3.5 h-3.5" />
+            <ArrowRight className="w-3.5 h-3.5" />
           </div>
         </div>
       </div>
@@ -94,9 +91,7 @@ function FeaturedNewsCard({ item }: { item: NewsItem }) {
 function NewsCard({ item }: { item: NewsItem }) {
   return (
     <a
-      href={item.link}
-      target={item.link === "#" ? "_self" : "_blank"}
-      rel="noopener noreferrer"
+      href={`/press-release/${item.slug}`}
       className="group flex flex-col rounded-2xl border border-primary/25 bg-white p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:border-primary/40"
     >
       <div className="mb-4 h-0.5 w-8 rounded-full bg-primary/50" />

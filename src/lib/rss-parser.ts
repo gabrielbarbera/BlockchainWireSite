@@ -6,8 +6,10 @@ interface RssItem {
   link?: string;
   pubDate?: string;
   description?: string;
+  "content:encoded"?: string;
   "dc:creator"?: string;
   category?: string | { "#text": string }[] | string[];
+  guid?: string | { "#text": string };
 }
 
 interface RssFeed {
@@ -59,15 +61,50 @@ function normalizeItem(item: RssItem, index: number): NewsItem | null {
     }
   }
 
+  const title = String(item.title).trim();
+  const link = String(item.link).trim();
+  const fullDescription = item.description ? String(item.description) : "";
+  const fullContent = item["content:encoded"] ? String(item["content:encoded"]) : fullDescription;
+
+  let guid = "";
+  if (item.guid) {
+    if (typeof item.guid === "string") {
+      guid = item.guid;
+    } else if (typeof item.guid === "object" && "#text" in item.guid) {
+      guid = String(item.guid["#text"]);
+    }
+  }
+
+  const slug = extractSlug(link, title);
+
   return {
     id: `bw-${index}`,
-    title: String(item.title).trim(),
-    link: String(item.link).trim(),
+    title,
+    link,
     pubDate: item.pubDate ? String(item.pubDate).trim() : new Date().toISOString(),
-    description: item.description ? stripHtml(String(item.description)) : "",
+    description: stripHtml(fullDescription),
+    content: fullContent,
     creator,
     category,
+    guid: guid || link,
+    slug,
   };
+}
+
+function extractSlug(link: string, title: string): string {
+  try {
+    const urlSlug = link.split("/").pop()?.split("?")[0] ?? "";
+    if (urlSlug && urlSlug.length > 0 && urlSlug !== "feed-rss.xml") {
+      return urlSlug;
+    }
+  } catch {
+    // fall through
+  }
+  return title
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "")
+    .slice(0, 100);
 }
 
 function stripHtml(html: string): string {

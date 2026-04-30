@@ -578,3 +578,138 @@ button:disabled:focus-visible,
   opacity: 0.6;
   outline: 2px solid currentColor;
 }
+
+/* ── Newsroom Article Prose ──────────────────────────────────────────────────── */
+.newsroom-prose {
+  color: rgb(var(--color-ink) / 0.85);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+.newsroom-prose p {
+  margin-bottom: 1.25em;
+  color: rgb(10 10 10 / 0.78);
+}
+
+.newsroom-prose h1,
+.newsroom-prose h2,
+.newsroom-prose h3,
+.newsroom-prose h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: rgb(10 10 10 / 0.95);
+  margin-top: 1.75em;
+  margin-bottom: 0.75em;
+  line-height: 1.25;
+}
+
+.newsroom-prose h2 {
+  font-size: 1.5rem;
+}
+
+.newsroom-prose h3 {
+  font-size: 1.25rem;
+}
+
+.newsroom-prose h4 {
+  font-size: 1.125rem;
+}
+
+.newsroom-prose a {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+  text-decoration-color: rgb(53 186 207 / 0.4);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.newsroom-prose a:hover {
+  text-decoration-color: var(--color-primary);
+}
+
+.newsroom-prose strong,
+.newsroom-prose b {
+  font-weight: 700;
+  color: rgb(10 10 10 / 0.95);
+}
+
+.newsroom-prose em,
+.newsroom-prose i {
+  font-style: italic;
+}
+
+.newsroom-prose ul,
+.newsroom-prose ol {
+  margin-bottom: 1.25em;
+  padding-left: 1.5em;
+}
+
+.newsroom-prose ul {
+  list-style: disc;
+}
+
+.newsroom-prose ol {
+  list-style: decimal;
+}
+
+.newsroom-prose li {
+  margin-bottom: 0.5em;
+}
+
+.newsroom-prose img,
+.newsroom-prose video,
+.newsroom-prose iframe {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  margin: 1.5em auto;
+  display: block;
+}
+
+.newsroom-prose figure {
+  margin: 1.5em 0;
+  text-align: center;
+}
+
+.newsroom-prose figure img {
+  margin: 0 auto;
+}
+
+.newsroom-prose figcaption {
+  font-size: 0.875rem;
+  color: rgb(10 10 10 / 0.5);
+  margin-top: 0.5em;
+  font-style: italic;
+}
+
+.newsroom-prose blockquote {
+  border-left: 3px solid var(--color-primary);
+  padding-left: 1.5em;
+  margin: 1.5em 0;
+  font-style: italic;
+  color: rgb(10 10 10 / 0.7);
+}
+
+.newsroom-prose hr {
+  border: none;
+  border-top: 1px solid rgb(10 10 10 / 0.1);
+  margin: 2em 0;
+}
+
+.newsroom-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+}
+
+.newsroom-prose th,
+.newsroom-prose td {
+  border: 1px solid rgb(10 10 10 / 0.1);
+  padding: 0.5em 1em;
+  text-align: left;
+}
+
+.newsroom-prose th {
+  background-color: rgb(10 10 10 / 0.03);
+  font-weight: 600;
+}
