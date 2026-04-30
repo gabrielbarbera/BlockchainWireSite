@@ -1,5 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { CtaLink, PageHero, SectionDark } from "../components/ui";
+import { useNewsroomFeed } from "../hooks/useNewsroomFeed";
+import type { NewsItem } from "../types/newsroom";
 import {
   Clock,
   ExternalLink,
@@ -11,19 +13,7 @@ import {
   Tag,
 } from "lucide-react";
 
-const RSS_URL = "https://api.blockchainwire.io/feed-rss.xml";
-
 type DateRange = "all" | "24h" | "7d" | "30d" | "custom";
-
-type NewsItem = {
-  id: string;
-  title: string;
-  link: string;
-  pubDate: string;
-  description: string;
-  creator: string;
-  category: string;
-};
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
@@ -50,27 +40,6 @@ function formatRelativeDate(dateStr: string): string {
   }
 }
 
-function parseRss(xml: string): NewsItem[] {
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(xml, "text/xml");
-  const items = doc.querySelectorAll("item");
-  const results: NewsItem[] = [];
-  items.forEach((item) => {
-    const getTag = (tag: string) => item.querySelector(tag)?.textContent?.trim() || "";
-    const getDcTag = (tag: string) =>
-      item.getElementsByTagNameNS("http://purl.org/dc/elements/1.1/", tag)[0]?.textContent?.trim() || "";
-    results.push({
-      id: `bw-${results.length}`,
-      title: getTag("title"),
-      link: getTag("link"),
-      pubDate: getTag("pubDate"),
-      description: getTag("description"),
-      creator: getDcTag("creator"),
-      category: "Press Release",
-    });
-  });
-  return results;
-}
 
 // ─── Badges ─────────────────────────────────────────────────────────────────
 
@@ -356,9 +325,8 @@ function FilterSidebar({
 // ─── Page ────────────────────────────────────────────────────────────────────
 
 export function NewsroomPage() {
+  const { data: feedData, loading, error } = useNewsroomFeed();
   const [posts, setPosts] = useState<NewsItem[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState(12);
   const [search, setSearch] = useState("");
   const [dateRange, setDateRange] = useState<DateRange>("all");
@@ -367,21 +335,12 @@ export function NewsroomPage() {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  // Update posts when feed data is loaded
   useEffect(() => {
-    fetch(RSS_URL)
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch feed");
-        return res.text();
-      })
-      .then((xml) => {
-        setPosts(parseRss(xml));
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
+    if (feedData && feedData.length > 0) {
+      setPosts(feedData);
+    }
+  }, [feedData]);
 
   const allNews = useMemo(() => posts, [posts]);
 
