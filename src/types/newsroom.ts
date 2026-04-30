@@ -7,6 +7,7 @@ export interface NewsItem {
   content: string;
   creator: string;
   category: string;
+  organization: string;
   guid: string;
   slug: string;
 }

@@ -76,6 +76,7 @@ function normalizeItem(item: RssItem, index: number): NewsItem | null {
   }
 
   const slug = extractSlug(link, title);
+  const organization = extractOrganization(title, fullDescription) || "";
 
   return {
     id: `bw-${index}`,
@@ -86,9 +87,74 @@ function normalizeItem(item: RssItem, index: number): NewsItem | null {
     content: fullContent,
     creator,
     category,
+    organization,
     guid: guid || link,
     slug,
   };
+}
+
+function extractOrganization(title: string, description: string): string | undefined {
+  return extractOrganizationFromTitle(title) || extractOrganizationFromDescription(description);
+}
+
+function extractOrganizationFromTitle(title: string): string | undefined {
+  const normalized = title.replace(/\s+/g, " ").trim();
+  const boundary =
+    /\s(?:Launches|Launching|Marks|Names|Provides|Executes|Appoints|Rebrands|Releases|Announces|Announce|Announced|Introduces|Introducing|Unveils|Unveiling|Opens|Expands|Closes|Completes|Acquires|Partners|Highlights|Founder|Joins|Reports|Refutes|Welcomes|Adds|Adopts|Reveals|Hits|Surpasses|Becomes|Sets|Plans|Selects|Confirms|Files|Appoints|Wins|Raises|Secures|Receives|Delivers|Posts)\b/i;
+  const colonSplit = normalized.split(":");
+  const beforeColon = colonSplit[0].trim();
+
+  // If title has a colon and second part starts with org keyword, use second part
+  if (colonSplit.length > 1) {
+    const afterColon = colonSplit.slice(1).join(":").trim();
+    const afterMatch = afterColon.match(boundary);
+    if (afterMatch) {
+      const candidate = afterColon.slice(0, afterMatch.index).trim();
+      if (candidate && candidate.length < 60) {
+        return cleanOrganization(candidate);
+      }
+    }
+  }
+
+  const match = beforeColon.match(boundary);
+  let candidate = match ? beforeColon.slice(0, match.index).trim() : undefined;
+
+  // Drop trailing prepositions like "of", "for", etc.
+  if (candidate) {
+    candidate = candidate.replace(/\s+(?:of|for|to|with|and|in|on|at)$/i, "").trim();
+  }
+
+  if (candidate && candidate.length < 60) {
+    return cleanOrganization(candidate);
+  }
+  return undefined;
+}
+
+function extractOrganizationFromDescription(html: string): string | undefined {
+  const anchorMatch = html.match(/<a\b[^>]*>([\s\S]*?)<\/a>/i);
+  if (!anchorMatch) return undefined;
+  const text = anchorMatch[1].replace(/<[^>]+>/g, "").trim();
+  return cleanOrganization(text);
+}
+
+function cleanOrganization(value: string | undefined): string | undefined {
+  if (!value) return undefined;
+  const cleaned = value
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&#8217;|&#x27;/g, "'")
+    .replace(/&#8216;/g, "'")
+    .replace(/&#8220;|&#8221;/g, '"')
+    .replace(/&#8211;|&#8212;/g, "–")
+    .replace(/\s+/g, " ")
+    .replace(/^[\s,;:–—-]+|[\s,;:–—-]+$/g, "")
+    .trim();
+
+  if (!cleaned || cleaned.length < 2 || cleaned.length > 60) return undefined;
+  if (/^about\b/i.test(cleaned) || /^media contact\b/i.test(cleaned)) return undefined;
+  if (/^[\w.-]+\.[a-z]{2,}$/i.test(cleaned) || cleaned.includes("@")) return undefined;
+  if (/^https?:/i.test(cleaned)) return undefined;
+  return cleaned;
 }
 
 function extractSlug(link: string, title: string): string {

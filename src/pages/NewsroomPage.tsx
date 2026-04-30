@@ -60,7 +60,7 @@ function FeaturedNewsCard({ item }: { item: NewsItem }) {
     >
       <div className="flex-1 min-w-0">
         <div className="flex flex-wrap items-center gap-2 mb-4">
-          <CategoryBadge category={item.category} />
+          <CategoryBadge category={item.organization || "Press Release"} />
           <span className="ml-auto flex items-center gap-1 text-xs text-ink/35">
             <Clock className="w-3 h-3" />
             {formatRelativeDate(item.pubDate)}
@@ -73,9 +73,6 @@ function FeaturedNewsCard({ item }: { item: NewsItem }) {
           {stripHtml(item.description)}
         </p>
         <div className="mt-6 flex items-center gap-3 border-t border-ink/5 pt-5">
-          {item.creator && (
-            <span className="text-xs text-ink/40 font-medium">via {item.creator}</span>
-          )}
           <div className="ml-auto flex items-center gap-1.5 text-sm font-semibold text-primary-dark">
             Read Article
             <ArrowRight className="w-3.5 h-3.5" />
@@ -96,7 +93,7 @@ function NewsCard({ item }: { item: NewsItem }) {
     >
       <div className="mb-4 h-0.5 w-8 rounded-full bg-primary/50" />
       <div className="flex flex-wrap items-center gap-2">
-        <CategoryBadge category={item.category} />
+        <CategoryBadge category={item.organization || "Press Release"} />
       </div>
       <h2 className="mt-3 text-[0.9375rem] font-semibold text-ink/85 leading-snug line-clamp-3 group-hover:text-ink transition-colors">
         {item.title}
@@ -356,7 +353,8 @@ export function NewsroomPage() {
         (n) =>
           n.creator.toLowerCase().includes(q) ||
           n.title.toLowerCase().includes(q) ||
-          n.category.toLowerCase().includes(q),
+          n.category.toLowerCase().includes(q) ||
+          n.organization.toLowerCase().includes(q),
       );
     }
 

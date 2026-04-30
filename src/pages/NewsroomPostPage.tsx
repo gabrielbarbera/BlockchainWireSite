@@ -199,12 +199,12 @@ export function NewsroomPostPage({ path }: { path: string }) {
           <div className="flex flex-wrap items-center gap-2 mb-6">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-primary">
               <Newspaper className="w-3 h-3" />
-              {post.category}
+              Press Release
             </span>
-            {post.creator && (
+            {post.organization && (
               <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-white/50">
                 <Building className="w-3 h-3" />
-                {post.creator}
+                {post.organization}
               </span>
             )}
           </div>
@@ -272,7 +272,7 @@ export function NewsroomPostPage({ path }: { path: string }) {
                 >
                   <div className="mb-4 h-0.5 w-8 rounded-full bg-primary/50" />
                   <span className="inline-flex items-center rounded-full border border-ink/10 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-ink/40 self-start">
-                    {p.category}
+                    {p.organization || "Press Release"}
                   </span>
                   <h3 className="mt-3 text-[0.9375rem] font-semibold text-ink/85 leading-snug line-clamp-3 group-hover:text-ink transition-colors">
                     {p.title}
