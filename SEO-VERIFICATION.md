@@ -25,7 +25,7 @@
 - ✅ `og:url`: "https://blockchainwire.io/"
 - ✅ `og:title`: "BlockchainWire | Web3 Press Release Distribution"
 - ✅ `og:description`: "Web3 press release distribution to AP News, Business Insider, and 1,200+ outlets. Google News indexed. Up to 82M reach."
-- ✅ `og:image`: "https://blockchainwire.io/og-image.png"
+- ✅ `og:image`: "https://blockchainwire.io/opengraph.png"
 - ✅ `og:image:width`: "1200"
 - ✅ `og:image:height`: "630"
 - ✅ `og:image:alt`: "BlockchainWire: Web3 Press Release Distribution"
@@ -37,7 +37,7 @@
 - ✅ `twitter:url`: "https://blockchainwire.io/"
 - ✅ `twitter:title`: "BlockchainWire | Web3 Press Release Distribution"
 - ✅ `twitter:description`: "Web3 press release distribution to AP News, Business Insider, and 1,200+ outlets. Up to 82M reach."
-- ✅ `twitter:image`: "https://blockchainwire.io/og-image.png"
+- ✅ `twitter:image`: "https://blockchainwire.io/opengraph.png"
 - ✅ `twitter:image:alt`: "BlockchainWire: Web3 Press Release Distribution"
 - ✅ `twitter:site`: "@blockchain_wire"
 - ✅ `twitter:creator`: "@blockchain_wire"
@@ -51,7 +51,7 @@
 - ✅ `alternateName`: "Blockchain Wire"
 - ✅ `url`: "https://blockchainwire.io"
 - ✅ `logo` (ImageObject with url, width, height)
-- ✅ `image`: "https://blockchainwire.io/og-image.png"
+- ✅ `image`: "https://blockchainwire.io/opengraph.png"
 - ✅ `description`: Complete
 - ✅ `foundingDate`: "2018"
 - ✅ `sameAs`: Facebook, Twitter, LinkedIn

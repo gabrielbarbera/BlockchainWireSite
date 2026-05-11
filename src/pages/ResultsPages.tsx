@@ -50,7 +50,7 @@ export const RESULTS_PAGES: ResultsPageData[] = [
     sectionsTitle: "Placement Categories",
     sections: [
       "Crypto Media: Cryptopolitan, HackerNoon, AMB Crypto, The Defiant, DailyCoin",
-      "Financial Media: Benzinga, MarketWatch, Business Insider, Barchart",
+      "Financial Media: Benzinga, Business Insider, Barchart",
       "Global Syndication: Associated Press, Google News indexed platforms, EIN Presswire, MENAFN",
       "All placements are based on selected distribution circuits and package configuration.",
     ],

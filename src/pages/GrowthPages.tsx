@@ -110,7 +110,7 @@ const FAQS = [
   },
   {
     q: "Which outlets will my release appear on?",
-    a: "Outlets depend on your chosen circuit. Crypto Circuits cover 25–36 crypto-native publications. Media Circuits add top-tier financial outlets including Associated Press, Business Insider, MarketWatch, and Benzinga.",
+    a: "Outlets depend on your chosen circuit. Crypto Circuits cover 25–36 crypto-native publications. Media Circuits add top-tier financial outlets including Associated Press, Business Insider, and Benzinga.",
   },
   {
     q: "Can I edit my release after submitting?",

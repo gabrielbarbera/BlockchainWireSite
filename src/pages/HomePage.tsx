@@ -80,14 +80,13 @@ const MEDIA_CIRCUITS = [
     name: "Premium",
     price: "$495",
     subtitle: "Maximum Media + Crypto Reach",
-    summary: "174M+ total reach with Associated Press, Benzinga, Business Insider, MarketWatch, Street Insider, and more.",
+    summary: "174M+ total reach with Associated Press, Benzinga, Business Insider, Street Insider, and more.",
     highlight: true,
   },
 ];
 
 const PARTNERS = [
   { src: "/partners/benzinga.svg", name: "Benzinga" },
-  { src: "/partners/marketwatch.svg", name: "MarketWatch" },
   { src: "/partners/bi-logo.svg", name: "Business Insider" },
   { src: "/partners/ap news.svg", name: "AP News" },
   { src: "/partners/Google News.svg", name: "Google News" },
@@ -105,7 +104,6 @@ const PARTNERS = [
 const OUTLETS = [
   { name: "AP News",           logo: "/partners/ap news.svg",    label: "Published" },
   { name: "Business Insider",  logo: "/partners/bi-logo.svg",    label: "Published" },
-  { name: "MarketWatch",       logo: "/partners/marketwatch.svg", label: "Published" },
   { name: "Benzinga",          logo: "/partners/benzinga.svg",    label: "Published" },
   { name: "Google News",       logo: "/partners/Google News.svg", label: "Indexed"   },
 ];
@@ -451,7 +449,7 @@ export function HomePage() {
                 number: "02",
                 title: "Validate",
                 description:
-                  "Appear in environments that signal legitimacy — AP News, Business Insider, MarketWatch — the outlets investors and partners trust.",
+                  "Appear in environments that signal legitimacy — AP News and Business Insider — the outlets investors and partners trust.",
                 icon: <CheckCircle2 className="w-7 h-7" />,
               },
               {

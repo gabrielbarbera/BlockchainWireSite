@@ -45,7 +45,7 @@ const PRODUCTS: ProductData[] = [
     listTitle: "Network Categories",
     listItems: [
       "Crypto Media — 36+ crypto-native sites including BitcoinWorld, CoinChapter, AMB Crypto, Cryptopolitan",
-      "Financial Media — Associated Press, Benzinga, Business Insider, MarketWatch, Street Insider",
+      "Financial Media — Associated Press, Benzinga, Business Insider, Street Insider",
       "Syndication Channels — EIN Presswire, BizWire Express, MENAFN, and aggregated networks",
       "Search Indexing — Google News indexing across all distributed placements",
     ],

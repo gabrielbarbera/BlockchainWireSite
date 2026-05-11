@@ -367,7 +367,7 @@ export const PRICING_PREVIEW = [
     price: "$495",
     subtitle: "Maximum Media + Crypto Reach (Fastest turnaround)",
     summary:
-      "82M+ total reach with AP, Benzinga, Business Insider, MarketWatch, Street Insider, Google News indexing, and 25+ crypto placements.",
+      "82M+ total reach with AP, Benzinga, Business Insider, Street Insider, Google News indexing, and 25+ crypto placements.",
     highlight: true,
   },
 ];
