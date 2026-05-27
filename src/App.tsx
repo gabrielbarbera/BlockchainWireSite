@@ -31,6 +31,7 @@ import {
 } from "./pages/GrowthPages";
 import { BeSpokePage } from "./pages/BeSpokePage";
 import { PricingPage } from "./pages/PricingPage";
+import { IndustryNewsPage } from "./pages/IndustryNewsPage";
 import { NewsroomPage } from "./pages/NewsroomPage";
 import { NewsroomPostPage } from "./pages/NewsroomPostPage";
 import { ProductsPage } from "./pages/ProductsPages";
@@ -160,6 +161,7 @@ export default function App() {
     if (displayedPath.startsWith("/results/")) return <ResultDetailPage path={displayedPath} />;
     if (displayedPath === "/resources") return <ResourcesOverviewPage />;
     if (displayedPath === "/resources/newsroom") return <NewsroomPage />;
+    if (displayedPath === "/resources/industry-news") return <IndustryNewsPage />;
     if (displayedPath.startsWith("/press-release/")) return <NewsroomPostPage path={displayedPath} />;
     if (displayedPath.startsWith("/resources/")) return <ResourceDetailPage path={displayedPath} />;
     if (displayedPath === "/company") return <CompanyOverviewPage />;

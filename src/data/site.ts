@@ -15,6 +15,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "How It Works", href: "/how-it-works" },
   { label: "Pricing", href: "/pricing" },
   { label: "Newsroom", href: "/resources/newsroom" },
+  { label: "Industry News", href: "/resources/industry-news" },
 ];
 
 export const SITEMAP: Record<string, RouteData> = {

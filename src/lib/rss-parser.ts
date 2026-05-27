@@ -1,6 +1,11 @@
 import { XMLParser } from "fast-xml-parser";
 import type { NewsItem } from "../types/newsroom";
 
+interface MediaContent {
+  "@_url"?: string;
+  "@_medium"?: string;
+}
+
 interface RssItem {
   title?: string;
   link?: string;
@@ -10,6 +15,9 @@ interface RssItem {
   "dc:creator"?: string;
   category?: string | { "#text": string }[] | string[];
   guid?: string | { "#text": string };
+  "media:content"?: MediaContent | MediaContent[];
+  "media:thumbnail"?: MediaContent;
+  enclosure?: MediaContent;
 }
 
 interface RssFeed {
@@ -77,6 +85,11 @@ function normalizeItem(item: RssItem, index: number): NewsItem | null {
 
   const slug = extractSlug(link, title);
   const organization = extractOrganization(title, fullDescription) || "";
+  const rawImage =
+    extractFirstImage(fullContent) ||
+    extractFirstImage(fullDescription) ||
+    extractMediaImage(item);
+  const image = rawImage ? upgradeImageUrl(rawImage) : undefined;
 
   return {
     id: `bw-${index}`,
@@ -90,6 +103,7 @@ function normalizeItem(item: RssItem, index: number): NewsItem | null {
     organization,
     guid: guid || link,
     slug,
+    image: image ?? null,
   };
 }
 
@@ -171,6 +185,31 @@ function extractSlug(link: string, title: string): string {
     .replace(/\s+/g, "-")
     .replace(/[^a-z0-9-]/g, "")
     .slice(0, 100);
+}
+
+function upgradeImageUrl(url: string): string {
+  // GlobeNewswire CDN: /tiny/ is hotlink-blocked; /medium/ resolves correctly
+  return url.replace(/(ml\.globenewswire\.com\/media\/[^/]+\/)tiny\//i, "$1medium/");
+}
+
+function extractMediaImage(item: RssItem): string | undefined {
+  const mc = item["media:content"];
+  if (mc) {
+    const first = Array.isArray(mc) ? mc[0] : mc;
+    if (first?.["@_url"]) return first["@_url"];
+    const nested = (first as Record<string, unknown>)?.["media:thumbnail"];
+    if (nested && typeof nested === "object" && "@_url" in nested) {
+      return (nested as Record<string, unknown>)["@_url"] as string;
+    }
+  }
+  if (item["media:thumbnail"]?.["@_url"]) return item["media:thumbnail"]["@_url"];
+  if (item.enclosure?.["@_url"]) return item.enclosure["@_url"];
+  return undefined;
+}
+
+function extractFirstImage(html: string): string | undefined {
+  const match = html.match(/<img\b[^>]+src=["']([^"']+)["']/i);
+  return match?.[1];
 }
 
 function stripHtml(html: string): string {

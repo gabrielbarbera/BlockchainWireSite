@@ -50,65 +50,47 @@ function CategoryBadge({ category }: { category: string }) {
   );
 }
 
-// ─── Featured card ───────────────────────────────────────────────────────────
-
-function FeaturedNewsCard({ item }: { item: NewsItem }) {
-  return (
-    <a
-      href={`/press-release/${item.slug}`}
-      className="group mb-5 flex flex-col rounded-3xl border border-ink/10 bg-white p-8 lg:p-10 transition-all duration-300 hover:shadow-lg hover:border-ink/20 lg:flex-row lg:gap-12"
-    >
-      <div className="flex-1 min-w-0">
-        <div className="flex flex-wrap items-center gap-2 mb-4">
-          <CategoryBadge category={item.organization || "Press Release"} />
-          <span className="ml-auto flex items-center gap-1 text-xs text-ink/35">
-            <Clock className="w-3 h-3" />
-            {formatRelativeDate(item.pubDate)}
-          </span>
-        </div>
-        <h2 className="text-2xl sm:text-3xl font-display font-bold text-ink/90 leading-snug group-hover:text-ink transition-colors">
-          {item.title}
-        </h2>
-        <p className="mt-4 text-ink/70 leading-relaxed line-clamp-3 max-w-2xl">
-          {stripHtml(item.description)}
-        </p>
-        <div className="mt-6 flex items-center gap-3 border-t border-ink/5 pt-5">
-          <div className="ml-auto flex items-center gap-1.5 text-sm font-semibold text-primary-dark">
-            Read Article
-            <ArrowRight className="w-3.5 h-3.5" />
-          </div>
-        </div>
-      </div>
-    </a>
-  );
-}
-
 // ─── Regular news card ───────────────────────────────────────────────────────
 
 function NewsCard({ item }: { item: NewsItem }) {
   return (
     <a
       href={`/press-release/${item.slug}`}
-      className="group flex flex-col rounded-2xl border border-primary/25 bg-white p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:border-primary/40"
+      className="group flex flex-col rounded-2xl border border-ink/8 bg-white overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-primary/30"
     >
-      <div className="mb-4 h-0.5 w-8 rounded-full bg-primary/50" />
-      <div className="flex flex-wrap items-center gap-2">
-        <CategoryBadge category={item.organization || "Press Release"} />
+      {/* Image — 16:9, object-contain so logos & editorial photos both fit */}
+      <div className="aspect-video w-full bg-slate-50 overflow-hidden border-b border-ink/5">
+        {item.image ? (
+          <img
+            src={item.image}
+            alt={item.title}
+            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+            loading="lazy"
+          />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-primary/6 to-transparent flex items-center justify-center">
+            <div className="w-8 h-0.5 rounded-full bg-primary/40" />
+          </div>
+        )}
       </div>
-      <h2 className="mt-3 text-[0.9375rem] font-semibold text-ink/85 leading-snug line-clamp-3 group-hover:text-ink transition-colors">
-        {item.title}
-      </h2>
-      <p className="mt-2.5 flex-1 text-sm text-ink/48 leading-relaxed line-clamp-3">
-        {stripHtml(item.description)}
-      </p>
-      <div className="mt-4 flex items-center justify-between border-t border-ink/5 pt-4">
-        <div className="flex items-center gap-1 text-xs text-ink/35">
-          <Clock className="w-3 h-3" />
-          {formatRelativeDate(item.pubDate)}
-        </div>
-        <div className="flex items-center gap-1.5 text-xs font-semibold text-primary-dark">
-          Read
-          <ArrowRight className="w-3 h-3" />
+
+      <div className="flex flex-col flex-1 p-5">
+        <CategoryBadge category={item.organization || "Press Release"} />
+        <h2 className="mt-2.5 text-[0.9375rem] font-semibold text-ink/85 leading-snug line-clamp-3 group-hover:text-ink transition-colors">
+          {item.title}
+        </h2>
+        <p className="mt-2 flex-1 text-sm text-ink/45 leading-relaxed line-clamp-2">
+          {stripHtml(item.description)}
+        </p>
+        <div className="mt-4 flex items-center justify-between border-t border-ink/5 pt-3.5">
+          <div className="flex items-center gap-1 text-xs text-ink/35">
+            <Clock className="w-3 h-3" />
+            {formatRelativeDate(item.pubDate)}
+          </div>
+          <div className="flex items-center gap-1 text-xs font-semibold text-primary-dark">
+            Read
+            <ArrowRight className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-0.5" />
+          </div>
         </div>
       </div>
     </a>
@@ -119,24 +101,23 @@ function NewsCard({ item }: { item: NewsItem }) {
 
 function SkeletonCard() {
   return (
-    <div className="rounded-2xl border border-ink/8 bg-white p-6 animate-pulse">
-      <div className="flex gap-2 mb-4">
-        <div className="h-4 w-14 rounded-full bg-ink/8" />
-        <div className="h-4 w-20 rounded-full bg-ink/8" />
-      </div>
-      <div className="space-y-2 mb-4">
-        <div className="h-4 w-full rounded bg-ink/8" />
-        <div className="h-4 w-5/6 rounded bg-ink/8" />
-        <div className="h-4 w-4/6 rounded bg-ink/8" />
-      </div>
-      <div className="space-y-1.5">
-        <div className="h-3 w-full rounded bg-ink/5" />
-        <div className="h-3 w-full rounded bg-ink/5" />
-        <div className="h-3 w-2/3 rounded bg-ink/5" />
-      </div>
-      <div className="mt-4 pt-4 border-t border-ink/5 flex justify-between">
-        <div className="h-3 w-16 rounded bg-ink/5" />
-        <div className="h-3 w-12 rounded bg-ink/5" />
+    <div className="rounded-2xl border border-ink/8 bg-white overflow-hidden animate-pulse">
+      <div className="aspect-video w-full bg-ink/6" />
+      <div className="p-5">
+        <div className="h-4 w-20 rounded-full bg-ink/8 mb-3" />
+        <div className="space-y-2 mb-3">
+          <div className="h-4 w-full rounded bg-ink/8" />
+          <div className="h-4 w-5/6 rounded bg-ink/8" />
+          <div className="h-4 w-3/4 rounded bg-ink/8" />
+        </div>
+        <div className="space-y-1.5 mb-4">
+          <div className="h-3 w-full rounded bg-ink/5" />
+          <div className="h-3 w-4/5 rounded bg-ink/5" />
+        </div>
+        <div className="pt-3.5 border-t border-ink/5 flex justify-between">
+          <div className="h-3 w-16 rounded bg-ink/5" />
+          <div className="h-3 w-10 rounded bg-ink/5" />
+        </div>
       </div>
     </div>
   );
@@ -319,7 +300,7 @@ function FilterSidebar({
 export function NewsroomPage() {
   const { data: feedData, loading, error } = useNewsroomFeed();
   const [posts, setPosts] = useState<NewsItem[]>([]);
-  const [visibleCount, setVisibleCount] = useState(12);
+  const [visibleCount, setVisibleCount] = useState(8);
   const [search, setSearch] = useState("");
   const [dateRange, setDateRange] = useState<DateRange>("all");
   const [customFrom, setCustomFrom] = useState("");
@@ -383,11 +364,7 @@ export function NewsroomPage() {
     return results;
   }, [allNews, selectedCategory, search, dateRange, customFrom, customTo]);
 
-  const noFiltersActive = !search && dateRange === "all" && !selectedCategory;
-  const showFeatured = noFiltersActive && filteredNews.length > 0;
-
   const displayedNews = filteredNews.slice(0, visibleCount);
-  const gridItems = showFeatured ? displayedNews.slice(1) : displayedNews;
   const hasMore = visibleCount < filteredNews.length;
 
   const handleReset = () => {
@@ -396,7 +373,7 @@ export function NewsroomPage() {
     setCustomFrom("");
     setCustomTo("");
     setSelectedCategory("");
-    setVisibleCount(12);
+    setVisibleCount(8);
   };
 
   return (
@@ -432,15 +409,15 @@ export function NewsroomPage() {
               <div className="lg:sticky lg:top-24">
                 <FilterSidebar
                   search={search}
-                  onSearchChange={(v) => { setSearch(v); setVisibleCount(12); }}
+                  onSearchChange={(v) => { setSearch(v); setVisibleCount(8); }}
                   dateRange={dateRange}
-                  onDateRangeChange={(v) => { setDateRange(v); setVisibleCount(12); }}
+                  onDateRangeChange={(v) => { setDateRange(v); setVisibleCount(8); }}
                   customFrom={customFrom}
                   onCustomFromChange={setCustomFrom}
                   customTo={customTo}
                   onCustomToChange={setCustomTo}
                   selectedCategory={selectedCategory}
-                  onCategoryChange={(v) => { setSelectedCategory(v); setVisibleCount(12); }}
+                  onCategoryChange={(v) => { setSelectedCategory(v); setVisibleCount(8); }}
                   availableCategories={availableCategories}
                   resultCount={filteredNews.length}
                   onReset={handleReset}
@@ -452,8 +429,8 @@ export function NewsroomPage() {
             <div className="flex-1 min-w-0">
               {/* Loading */}
               {loading && (
-                <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                  {Array.from({ length: 6 }).map((_, i) => (
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                  {Array.from({ length: 8 }).map((_, i) => (
                     <SkeletonCard key={i} />
                   ))}
                 </div>
@@ -488,10 +465,8 @@ export function NewsroomPage() {
               {/* Content */}
               {!loading && !error && filteredNews.length > 0 && (
                 <>
-                  {showFeatured && <FeaturedNewsCard item={filteredNews[0]} />}
-
-                  <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                    {gridItems.map((item) => (
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    {displayedNews.map((item) => (
                       <NewsCard key={item.id} item={item} />
                     ))}
                   </div>
@@ -503,7 +478,7 @@ export function NewsroomPage() {
                     </p>
                     {hasMore && (
                       <button
-                        onClick={() => setVisibleCount((c) => c + 12)}
+                        onClick={() => setVisibleCount((c) => c + 8)}
                         className="inline-flex items-center gap-2 rounded-full border-2 border-ink/15 bg-white px-8 py-3.5 text-sm font-semibold text-ink/60 hover:text-ink hover:border-ink/25 hover:bg-white transition-all duration-300"
                       >
                         Load More
