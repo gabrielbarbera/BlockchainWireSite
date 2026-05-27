@@ -56,7 +56,7 @@ export async function fetchNewsroomFeed(): Promise<NewsItem[]> {
 
 const INDUSTRY_API = "https://api.blockchainwire.io/website/read-partners-feed";
 const INDUSTRY_CACHE_TTL = 600000; // 10 minutes
-const INDUSTRY_ALL_CACHE_KEY = "industry_news_all_v4";
+const INDUSTRY_ALL_CACHE_KEY = "industry_news_all_v5";
 
 interface RawSource {
   industry_news_id: string;
@@ -77,10 +77,11 @@ function rssUrlWithHigherLimit(url: string): string {
 
 async function fetchSourceRss(source: IndustrySourceFull): Promise<IndustryNewsItem[]> {
   const feedUrl = rssUrlWithHigherLimit(source.url);
-  // Try proxies first — partner feeds don't allow CORS from browser origins
+  // Own edge proxy first, then external fallbacks
   const attempts = [
-    "https://corsproxy.io/?url=" + encodeURIComponent(feedUrl),
+    "/api/rss-proxy?url=" + encodeURIComponent(feedUrl),
     "https://api.allorigins.win/raw?url=" + encodeURIComponent(feedUrl),
+    "https://corsproxy.io/?url=" + encodeURIComponent(feedUrl),
     feedUrl,
   ];
 
