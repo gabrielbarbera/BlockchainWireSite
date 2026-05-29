@@ -115,6 +115,64 @@ export function NewsroomPostPage({ path }: { path: string }) {
       if (canonical) {
         canonical.setAttribute("href", post.link);
       }
+
+      // OpenGraph tags
+      const postUrl = `https://www.blockchainwire.io/press-release/${post.slug}`;
+      
+      // og:image - use post image if available, otherwise fall back to default
+      const ogImage = post.image || "/opengraph.png";
+      let ogImageTag = document.querySelector('meta[property="og:image"]') as HTMLMetaElement | null;
+      if (!ogImageTag) {
+        ogImageTag = document.createElement("meta");
+        ogImageTag.setAttribute("property", "og:image");
+        document.head.appendChild(ogImageTag);
+      }
+      ogImageTag.setAttribute("content", ogImage);
+
+      // og:url
+      let ogUrlTag = document.querySelector('meta[property="og:url"]') as HTMLMetaElement | null;
+      if (!ogUrlTag) {
+        ogUrlTag = document.createElement("meta");
+        ogUrlTag.setAttribute("property", "og:url");
+        document.head.appendChild(ogUrlTag);
+      }
+      ogUrlTag.setAttribute("content", postUrl);
+
+      // og:title
+      let ogTitleTag = document.querySelector('meta[property="og:title"]') as HTMLMetaElement | null;
+      if (!ogTitleTag) {
+        ogTitleTag = document.createElement("meta");
+        ogTitleTag.setAttribute("property", "og:title");
+        document.head.appendChild(ogTitleTag);
+      }
+      ogTitleTag.setAttribute("content", post.title);
+
+      // og:description
+      let ogDescTag = document.querySelector('meta[property="og:description"]') as HTMLMetaElement | null;
+      if (!ogDescTag) {
+        ogDescTag = document.createElement("meta");
+        ogDescTag.setAttribute("property", "og:description");
+        document.head.appendChild(ogDescTag);
+      }
+      ogDescTag.setAttribute("content", post.description);
+
+      // twitter:card
+      let twitterCardTag = document.querySelector('meta[name="twitter:card"]') as HTMLMetaElement | null;
+      if (!twitterCardTag) {
+        twitterCardTag = document.createElement("meta");
+        twitterCardTag.setAttribute("name", "twitter:card");
+        document.head.appendChild(twitterCardTag);
+      }
+      twitterCardTag.setAttribute("content", "summary_large_image");
+
+      // twitter:image
+      let twitterImageTag = document.querySelector('meta[name="twitter:image"]') as HTMLMetaElement | null;
+      if (!twitterImageTag) {
+        twitterImageTag = document.createElement("meta");
+        twitterImageTag.setAttribute("name", "twitter:image");
+        document.head.appendChild(twitterImageTag);
+      }
+      twitterImageTag.setAttribute("content", ogImage);
     }
   }, [post]);
 
