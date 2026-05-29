@@ -9,8 +9,7 @@
     "build": "tsx scripts/generate-sitemap.js && vite build",
     "preview": "vite preview",
     "prerender": "npx tsx scripts/prerender.js",
-    "install:chrome": "npx puppeteer browsers install chrome",
-    "build:prod": "npm run build && npm run install:chrome && npm run prerender",
+    "build:prod": "npm run build && npm run prerender",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
     "typecheck": "tsc --noEmit"
@@ -29,7 +28,6 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "autoprefixer": "^10.4.21",
-    "puppeteer": "^25.1.0",
     "tailwindcss": "^4.1.14",
     "tsx": "^4.21.0",
     "typescript": "~5.8.2",
