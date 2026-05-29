@@ -86,9 +86,9 @@ function normalizeItem(item: RssItem, index: number): NewsItem | null {
   const slug = extractSlug(link, title);
   const organization = extractOrganization(title, fullDescription) || "";
   const rawImage =
+    extractMediaImage(item) ||
     extractFirstImage(fullContent) ||
-    extractFirstImage(fullDescription) ||
-    extractMediaImage(item);
+    extractFirstImage(fullDescription);
   const image = rawImage ? upgradeImageUrl(rawImage) : undefined;
 
   return {

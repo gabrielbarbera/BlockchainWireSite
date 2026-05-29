@@ -229,6 +229,9 @@ export function NewsroomPostPage({ path }: { path: string }) {
   const content = post.content || post.description;
   const isHtml = hasHtmlTags(content);
   const formattedHtml = isHtml ? moveMediaBeforeText(content) : "";
+  const heroBackgroundImage = post.image
+    ? { backgroundImage: `url(${JSON.stringify(post.image)})` }
+    : undefined;
 
   // Find related posts (same category or recent posts)
   const relatedPosts = posts
@@ -241,11 +244,18 @@ export function NewsroomPostPage({ path }: { path: string }) {
     <main>
       {/* Hero header */}
       <section className="relative overflow-hidden bg-ink">
-        <div className="absolute inset-0 pointer-events-none noise" />
-        <div className="absolute top-10 right-0 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
-        <div className="absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-primary/5 blur-3xl" />
+        {heroBackgroundImage && (
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-85 brightness-90 saturate-75"
+            style={heroBackgroundImage}
+            aria-hidden="true"
+          />
+        )}
+        <div className="absolute inset-0 bg-ink/52" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/35 via-ink/62 to-ink/95" aria-hidden="true" />
+        <div className="absolute inset-0 pointer-events-none noise opacity-30" />
 
-        <div className="relative mx-auto max-w-5xl px-6 py-12 sm:py-16">
+        <div className="relative mx-auto max-w-5xl px-6 py-14 sm:py-20">
           <a
             href="/resources/newsroom"
             className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/45 hover:text-primary transition-colors mb-8"

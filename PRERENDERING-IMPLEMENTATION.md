@@ -45,9 +45,10 @@ npm run build:prod
 ```
 This will:
 1. Build the Vite app (`npm run build`)
-2. Generate prerendered HTML files (`npm run prerender`)
-3. Create static HTML for 30 most recent press releases
-4. Create static HTML for key pages
+2. Start the Vite preview server if one is not already running
+3. Generate prerendered HTML files (`npm run prerender`)
+4. Create static HTML for 30 most recent press releases
+5. Create static HTML for key pages
 
 ### Production Preview:
 ```bash
@@ -82,8 +83,10 @@ dist/
 ├── pricing/
 │   └── index.html (prerendered)
 ├── press-release/
-│   ├── alpha-compute-corp-completes-majority-acquisition-of-gamee.html (prerendered)
-│   ├── sts-digital-joins-global-elite-with-wealthbriefingasia-award.html (prerendered)
+│   ├── alpha-compute-corp-completes-majority-acquisition-of-gamee/
+│   │   └── index.html (prerendered)
+│   ├── sts-digital-joins-global-elite-with-wealthbriefingasia-award/
+│   │   └── index.html (prerendered)
 │   └── ... (28 more press releases)
 ├── assets/ (JS, CSS, images)
 └── sitemap.xml
@@ -115,7 +118,7 @@ dist/
 
 2. Check a press release HTML:
    ```bash
-   cat dist/press-release/alpha-compute-corp-completes-majority-acquisition-of-gamee.html | grep "og:image"
+   cat dist/press-release/alpha-compute-corp-completes-majority-acquisition-of-gamee/index.html | grep "og:image"
    ```
 
 3. Test with OpenGraph validators:
@@ -178,7 +181,7 @@ return slugs.slice(0, 50); // Change 30 to 50 for more press releases
 ## Troubleshooting:
 
 ### If prerendering fails:
-1. Ensure preview server is running: `npm run preview`
+1. Run `npm run build:prod` so the prerender script can start preview automatically
 2. Check Puppeteer is installed correctly
 3. Verify RSS feed is accessible
 4. Check browser console for errors
