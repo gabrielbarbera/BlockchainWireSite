@@ -44,18 +44,20 @@ export function applySeo(pathname: string): void {
 
   descriptionTag.content = seo.description;
 
-  // OpenGraph image
-  const ogImagePath = "/opengraph.png";
-  let ogImageTag = document.querySelector(
-    'meta[property="og:image"]',
-  ) as HTMLMetaElement | null;
+  // OpenGraph image - skip for press-release routes (handled by NewsroomPostPage)
+  if (!pathname.startsWith("/press-release/")) {
+    const ogImagePath = "/opengraph.png";
+    let ogImageTag = document.querySelector(
+      'meta[property="og:image"]',
+    ) as HTMLMetaElement | null;
 
-  if (!ogImageTag) {
-    ogImageTag = document.createElement("meta");
-    ogImageTag.setAttribute("property", "og:image");
-    document.head.appendChild(ogImageTag);
+    if (!ogImageTag) {
+      ogImageTag = document.createElement("meta");
+      ogImageTag.setAttribute("property", "og:image");
+      document.head.appendChild(ogImageTag);
+    }
+    ogImageTag.content = ogImagePath;
   }
-  ogImageTag.content = ogImagePath;
 
   // Get route-specific robots meta tag
   const route = SITEMAP[pathname];
