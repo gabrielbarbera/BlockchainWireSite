@@ -9,7 +9,8 @@
     "build": "tsx scripts/generate-sitemap.js && vite build",
     "preview": "vite preview",
     "prerender": "npx tsx scripts/prerender.js",
-    "build:prod": "npm run build && npm run prerender",
+    "install:chrome": "npx puppeteer browsers install chrome",
+    "build:prod": "npm run build && npm run install:chrome && npm run prerender",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
     "typecheck": "tsc --noEmit"
