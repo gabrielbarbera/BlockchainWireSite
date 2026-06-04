@@ -3,7 +3,6 @@
   "outputDirectory": "dist",
   "framework": "vite",
   "rewrites": [
-    { "source": "/press-release/:slug", "destination": "/press-release/:slug/index.html" },
     { "source": "/((?!api/|assets/|partners/|.*\\.(?:ico|png|svg|js|css|html)).*)", "destination": "/index.html" }
   ],
   "headers": [

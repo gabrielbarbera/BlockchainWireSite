@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowLeft, Calendar, Building, Newspaper, ExternalLink, Clock } from "lucide-react";
+import { ArrowLeft, Calendar, Building, Newspaper, Clock } from "lucide-react";
 import { CtaLink, SectionDark } from "../components/ui";
 import { useNewsroomFeed } from "../hooks/useNewsroomFeed";
 import type { NewsItem } from "../types/newsroom";
@@ -8,33 +8,31 @@ function hasHtmlTags(content: string): boolean {
   return /<\/?[a-z][\s\S]*>/i.test(content);
 }
 
-function moveMediaBeforeText(content: string): string {
+function processContent(content: string): string {
   if (typeof window === "undefined") return content;
 
   try {
     const doc = new DOMParser().parseFromString(content, "text/html");
-    const media = Array.from(doc.body.querySelectorAll("img, video, iframe"));
-
-    if (media.length === 0) {
-      return content;
-    }
-
-    const mediaHtml = media
-      .map((element) => {
-        const wrapper = element.closest("figure, picture, p, div");
-        const html = wrapper?.outerHTML || element.outerHTML;
-
-        if (wrapper && wrapper.textContent?.trim() === "") {
-          wrapper.remove();
-        } else {
-          element.remove();
-        }
-
-        return html;
-      })
-      .join("");
-
-    return `${mediaHtml}${doc.body.innerHTML}`;
+    
+    // Remove all hidden paragraphs and their content
+    const hiddenElements = doc.body.querySelectorAll('p[style*="display: none"], p[style*="display:none"]');
+    hiddenElements.forEach(el => el.remove());
+    
+    // Remove empty paragraphs that only contain whitespace or &nbsp;
+    // But preserve paragraphs with images, links, or other HTML content
+    const paragraphs = doc.body.querySelectorAll('p');
+    paragraphs.forEach(p => {
+      const innerHTML = p.innerHTML.trim();
+      const hasContent = innerHTML && !innerHTML.includes('&nbsp;') && !/^\s*$/.test(innerHTML);
+      const hasElements = p.querySelector('img, a, strong, em, br, hr');
+      
+      // Only remove if truly empty (no HTML elements and no meaningful text)
+      if (!hasElements && !hasContent) {
+        p.remove();
+      }
+    });
+    
+    return doc.body.innerHTML;
   } catch {
     return content;
   }
@@ -228,7 +226,7 @@ export function NewsroomPostPage({ path }: { path: string }) {
 
   const content = post.content || post.description;
   const isHtml = hasHtmlTags(content);
-  const formattedHtml = isHtml ? moveMediaBeforeText(content) : "";
+  const processedContent = isHtml ? processContent(content) : content;
   const heroBackgroundImage = post.image
     ? { backgroundImage: `url(${JSON.stringify(post.image)})` }
     : undefined;
@@ -299,22 +297,13 @@ export function NewsroomPostPage({ path }: { path: string }) {
         <div className="mx-auto max-w-3xl px-6 py-12 sm:py-16">
           <article className="newsroom-prose">
             {isHtml ? (
-              <div dangerouslySetInnerHTML={{ __html: formattedHtml }} />
+              <div dangerouslySetInnerHTML={{ __html: processedContent }} />
             ) : (
               renderPlainTextContent(content)
             )}
           </article>
 
           <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-ink/10 pt-8">
-            <a
-              href={post.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-primary-dark hover:underline"
-            >
-              View on BlockchainWire
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
             <a
               href="/resources/newsroom"
               className="inline-flex items-center gap-2 text-sm font-semibold text-ink/60 hover:text-ink"
