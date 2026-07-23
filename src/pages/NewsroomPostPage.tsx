@@ -22,12 +22,11 @@ function processContent(content: string): string {
     // But preserve paragraphs with images, links, or other HTML content
     const paragraphs = doc.body.querySelectorAll('p');
     paragraphs.forEach(p => {
-      const innerHTML = p.innerHTML.trim();
-      const hasContent = innerHTML && !innerHTML.includes('&nbsp;') && !/^\s*$/.test(innerHTML);
+      const textContent = (p.textContent ?? "").replace(/\u00a0/g, " ").trim();
       const hasElements = p.querySelector('img, a, strong, em, br, hr');
       
       // Only remove if truly empty (no HTML elements and no meaningful text)
-      if (!hasElements && !hasContent) {
+      if (!hasElements && !textContent) {
         p.remove();
       }
     });
