@@ -24,13 +24,6 @@ import { Badge, CtaLink, StatRow } from "../components/ui";
 
 const CRYPTO_CIRCUITS = [
   {
-    name: "Copper",
-    price: "$495",
-    subtitle: "Premier Crypto Visibility",
-    summary: "300k+ monthly reach across 36 crypto sites including BitcoinWorld, Binance, CoinChapter.",
-    highlight: false,
-  },
-  {
     name: "Silver",
     price: "$1,195",
     subtitle: "Expanded Crypto Distribution",
@@ -336,7 +329,7 @@ export function HomePage() {
         stats={[
           { value: "174M+", label: "Max Monthly Reach" },
           { value: "1200+", label: "Media Outlets" },
-          { value: "8", label: "Distribution Tiers" },
+          { value: "7", label: "Distribution Tiers" },
           { value: "2h", label: "Min. Turnaround" },
         ]}
       />

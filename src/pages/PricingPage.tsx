@@ -16,18 +16,6 @@ type CircuitCard = {
 
 const cryptoCards: CircuitCard[] = [
   {
-    name: "Copper",
-    price: "$495",
-    subtitle: "Premier Crypto Visibility",
-    reach: "300k+ monthly reach",
-    placements: "Placement on 36 crypto sites",
-    includes:
-      "BitcoinWorld, Binance, CoinChapter, CoinMarketCap, Coinpress, and more",
-    bestFor: "Best for early-stage projects",
-    cta: "Launch with Copper",
-    light: true,
-  },
-  {
     name: "Silver",
     price: "$1,195",
     subtitle: "Expanded Crypto Distribution",
@@ -152,7 +140,7 @@ export function PricingPage() {
         subtitle="Choose from curated crypto circuits, premium media placements, and top-tier financial distribution designed to maximize visibility and authority."
       >
         <p className="mt-6 text-xs uppercase tracking-[0.18em] text-white/30">
-          Crypto Circuits (Copper to Diamond)  |  Media + Financial Circuits
+          Crypto Circuits (Silver to Diamond)  |  Media + Financial Circuits
           (Pro to Premium)  |  Premium Placements  |  Custom
         </p>
       </PageHero>
@@ -331,4 +319,3 @@ export function PricingPage() {
     </main>
   );
 }
-

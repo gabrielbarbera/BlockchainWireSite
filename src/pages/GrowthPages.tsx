@@ -38,7 +38,7 @@ const PHASES = [
     subtitle: "Choose the reach profile and outlet mix that fits your announcement.",
     icon: <Layers className="w-6 h-6" />,
     youDo: [
-      "Choose between Crypto Circuits (Copper → Diamond) or Media Circuits (Pro → Premium)",
+      "Choose between Crypto Circuits (Silver → Diamond) or Media Circuits (Pro → Premium)",
       "Review estimated reach and outlet categories for your chosen tier",
       "Submit your order through the platform",
     ],
@@ -110,7 +110,7 @@ const FAQS = [
   },
   {
     q: "Which outlets will my release appear on?",
-    a: "Outlets depend on your chosen circuit. Crypto Circuits cover 25–36 crypto-native publications. Media Circuits add top-tier financial outlets including Associated Press, Business Insider, and Benzinga.",
+    a: "Outlets depend on your chosen circuit. Crypto Circuits cover 25–28 crypto-native publications. Media Circuits add top-tier financial outlets including Associated Press, Business Insider, and Benzinga.",
   },
   {
     q: "Can I edit my release after submitting?",
@@ -315,7 +315,6 @@ export function ComparePackagesPage() {
               </thead>
               <tbody>
                 {[
-                  ["Copper", "Crypto circuit", "300k+", "Standard", "Crypto"],
                   ["Gold", "Crypto circuit", "4.1M+", "Standard", "Crypto"],
                   ["Diamond", "Crypto circuit", "17.4M+", "Priority", "Crypto"],
                   ["Pro", "Media + crypto", "Expanded", "Standard", "Financial + Crypto"],
@@ -500,4 +499,3 @@ export function TurnaroundSlasPage() {
     </main>
   );
 }
-

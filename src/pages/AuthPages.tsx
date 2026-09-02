@@ -122,7 +122,7 @@ export function SignUpPage() {
   const stats = [
     { value: "174M+", label: "Max Monthly Reach" },
     { value: "1200+", label: "Media Outlets" },
-    { value: "8", label: "Distribution Tiers" },
+    { value: "7", label: "Distribution Tiers" },
     { value: "2h", label: "Min. Turnaround" },
   ];
 
@@ -505,7 +505,6 @@ export function SubmitPressReleasePage() {
               Choose package
             </span>
             <select id="package-select" className="w-full rounded-xl border border-ink/15 px-4 py-3 text-sm">
-              <option>Copper</option>
               <option>Silver</option>
               <option>Gold</option>
               <option>Platinum</option>
